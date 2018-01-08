@@ -42,21 +42,25 @@
     "ts-jest": "^22.0.1"
   },
   "jest": {
-    "collectCoverage": true,
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testEnvironment": "node",
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
-      "ts"
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
     ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": ".*\\.test\\.ts$",
+    "collectCoverage": true,
+    "mapCoverage": true,
     "coverageReporters": [
       "json",
       "lcov",
       "text"
     ],
-    "mapCoverage": true,
     "coverageThreshold": {
       "global": {
         "branches": 85,

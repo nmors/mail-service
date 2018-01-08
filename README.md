@@ -9,6 +9,8 @@ An reliable mail service written with TypeScript.
 
 [Live example can be viewed here](https://morsmail.herokuapp.com])
 
+[API Documentation](https://morsmail.herokuapp.com/docs])
+
 
 To run locally:
 

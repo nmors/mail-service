@@ -75,7 +75,8 @@ export class SendMailController {
                         return res.json({result: 'success'});
                     }
 
-                    return res.status(500).json({result: 'error'})
+                    return res.status(500)
+                              .json({result: 'error'});
                 })
         };
     }

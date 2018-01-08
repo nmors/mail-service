@@ -11,6 +11,6 @@
   EOF
 
   cat >> ~/.ssh/config << EOF
-  VerifyHostKeyDNS yes
+  VerifyHostKeyDNS no
   StrictHostKeyChecking no
   EOF

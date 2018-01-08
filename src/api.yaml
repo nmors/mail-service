@@ -1,0 +1,64 @@
+swagger: "2.0"
+info:
+  description: "This is a simple mail service which allows you to send an email using mailgun or sendgrid"
+  version: "1.0.0"
+  title: "Mail Service"
+  contact:
+    email: "nathan@mors.me"
+  license:
+    name: "UNLICENCED"
+
+host: "localhost:3050"
+basePath: "/"
+schemes:
+- "http"
+externalDocs:
+  description: "GitHub Project"
+  url: "http://github.com/nmors/mail-service"
+
+paths:
+  /message:
+    post:
+      tags:
+      - "message"
+      summary: "posts a message via email to someone!"
+      description: ""
+      operationId: "postMessage"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Message object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Message"
+      responses:
+        400:
+          description: "Invalid input"
+        202:
+          description: "Accepted the message"
+
+definitions:
+  Message:
+    type: "object"
+    required:
+    - "to"
+    - "from"
+    - "subject"
+    - "text"
+    properties:
+      to:
+        type: "string"
+        example: "nathan@mors.me"
+      from:
+        type: "string"
+        example: "nathan@mors.me"
+      subject:
+        type: "string"
+        example: "Friday Night"
+      text:
+        type: "string"
+        example: "Hey Mate! Let's go for drinks this Friday night!"

@@ -1,0 +1,7 @@
+{
+  "name": "mail-service",
+  "description": "Node.JS mail service",
+  "repository": "https://github.com/nmors/mail-service",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "mail", "service", "mors"]
+}

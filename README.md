@@ -1,10 +1,16 @@
 # mail-service
 
-An reliable mail service written with typescript.
+[![CircleCI](https://circleci.com/gh/nmors/mail-service/tree/master.svg?style=svg)](https://circleci.com/gh/nmors/mail-service/tree/master)
 
-[https://morsmail.herokuapp.com/docs](Live example can be viewed here)
+An reliable mail service written with TypeScript.
+
 
 ## Quick start
+
+[Live example can be viewed here](https://morsmail.herokuapp.com])
+
+
+To run locally:
 
 ```
 git clone https://github.com/nmors/mail-service
@@ -14,21 +20,28 @@ npm install
 npm start
 ```
 
+Or you can deploy your own instance by clicking here: [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 
 ## Running Tests
 
-Tests are written using the [https://facebook.github.io/jest](Jest Framework)
+Tests are written using the [Jest Framework](https://facebook.github.io/jest)
 
 ```
 npm test
 ```
 
+## Architecture
+
+Please view the architecture document by clicking [HERE](./ARCHITECTURE.md)
 
 ## TODO
 
  - Add a queuing mechanism
- - have a base MailService class that each service extends
- - improve error handling & add a retry feature
- - support sending to multiple recipients
- - support for sending HTML emails (handlebars templates or something would be nice?)
- - improve test coverage
+ - Add authentication
+ - Support sending to multiple recipients
+ - Improve error handling & add a retry feature
+ - Have a base MailService class that each mail service extends
+ - Support for sending HTML emails (handlebars templates or something would be nice?)
+ - Improve test coverage
+

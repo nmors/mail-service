@@ -21,10 +21,13 @@ jobs:
           command: npm run test-ci
       - run:
           name: copy test report
-          command: mkdir /tmp/reports && cp test-report.xml /tmp/reports
+          command: mkdir -p /tmp/reports/jest && cp test-report.xml /tmp/reports/jest
       - run:
           name: copy coverage report
           command: cp -R coverage /tmp/reports
+      - run:
+          name: list the reports
+          command: ls /tmp/reports
       - store_test_results:
           # path: /tmp/reports/test-report.xml
           path: /tmp/reports

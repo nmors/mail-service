@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node src/main.ts",
     "test": "jest",
-    "test-ci" : "jest --json"
+    "test-ci": "jest --json"
   },
   "author": "",
   "license": "ISC",
@@ -31,13 +31,14 @@
     "@types/dotenv": "^4.0.2",
     "@types/express": "^4.11.0",
     "@types/form-data": "^2.2.1",
+    "@types/jest": "^22.0.1",
     "@types/js-yaml": "^3.10.1",
     "@types/node": "^8.5.7",
     "@types/node-fetch": "^1.6.7",
     "@types/swagger-tools": "^0.10.5",
     "@types/winston": "^2.3.7",
-    "@types/jest": "^22.0.1",
     "jest": "^22.0.4",
+    "jest-junit-reporter": "^1.1.0",
     "ts-jest": "^22.0.1"
   },
   "jest": {
@@ -45,15 +46,10 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "testEnvironment" : "node",
+    "testEnvironment": "node",
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
+      "ts"
     ],
     "coverageReporters": [
       "json",
@@ -69,8 +65,6 @@
         "statements": 90
       }
     },
-    "browser": false,
-    "verbose": false,
     "notify": true
   }
 }

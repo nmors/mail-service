@@ -45,7 +45,7 @@ jobs:
       - save_cache:
           paths:
             - ~/repo
-          key: v1-dependencies-{{ checksum "test-results.xml" }}
+          key: built-project
 
   deploy:
     docker:
@@ -54,7 +54,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-          - v1-dependencies-
+          - built-project
       - run:
           name: Run setup script
           command: bash .circleci/setup-heroku.sh

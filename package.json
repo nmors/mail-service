@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node src/main.ts",
     "test": "jest",
-    "test-ci": "jest --json"
+    "test-ci": "jest --ci --testResultsProcessor=\"./node_modules/jest-junit-reporter\""
   },
   "author": "",
   "license": "ISC",

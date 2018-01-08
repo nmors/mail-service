@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.9.4
+      - image: circleci/node:8.9.4-stretch-browsers
 
     working_directory: ~/repo
 
@@ -26,3 +26,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm run test-ci
+
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: morsmail

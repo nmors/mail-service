@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/controllers/SendMailController.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/controllers</a> SendMailController.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80.77% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>21/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.82% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">79.17% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/24</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">170x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as bluebird from 'bluebird';
+import * as express from 'express';
+import * as mailgun from '../services/mailgun';
+import * as sendgrid from '../services/sendgrid';
+import fetch, { RequestInit, Response } from 'node-fetch';
+import { logger } from '../logger';
+import { MailService, Message } from '../models/MailService';
+&nbsp;
+export class SendMailController {
+    private mailServices: MailService[];
+&nbsp;
+    /**
+     * @param mailServices you can inject as many MailServices as you want here for extra reliability
+     */
+    constructor(...mailServices: MailService[]) {
+        this.mailServices = [ ...mailServices ];
+    }
+&nbsp;
+    /**
+     * returns a new instance of the SendMailController with a some MailServices injected.
+     *
+     * @param fetchProvider http client library used to send mail - defaults to node-fetch if none specified
+     */
+    public static bootstrap(
+        fetchProvider: any = fetch,
+    ) {
+        return new SendMailController(
+            mailgun.createService(fetchProvider),
+            sendgrid.createService(fetchProvider),
+        );
+    }
+&nbsp;
+    /**
+     * Given a message to send, Returns a reducer function which can be applied to an array of MailServices.
+     * The reducer will immediately return true if the previous service succesfully sent the message already.
+     *
+     * @param message the message that we should try to send
+     */
+    private getMailServiceReducer = (message: Message) =&gt; (wasSuccessful: boolean, mailService: MailService) =&gt;
+        wasSuccessful || mailService.send(message)
+            .then((sendResult: any) =&gt; {
+                logger.info(`successfully sent your message with ${mailService.name}!`)
+                return sendResult
+            })
+            .catch((err: Error) =&gt; logger.error(`There was an error sending with ${mailService.name}: ${err.message}` ))
+&nbsp;
+&nbsp;
+    /**
+     * Attempts to send the given message with all of the defined mailServices with reduce.
+     * If all of the MailServices throws errors, the final return value will be undefined
+     *
+     * @param message the message that we should try to send (all services)
+     */
+    public async sendMail(message: Message): Promise&lt;boolean&gt; {
+        const sentMessage = await bluebird.reduce(this.mailServices, this.getMailServiceReducer(message), false);
+&nbsp;
+        if (!sentMessage) {
+            logger.error(`we tried really hard, but all of our mail services (${this.mailServices.map(x =&gt; x.name)}) refused to send our message!`);
+            return false;
+        }
+&nbsp;
+        return sentMessage;
+    }
+&nbsp;
+    /**
+     * Returns an express Request handler (middleware) that can be applied to an API route.
+     */
+    public getMiddleware(): express.RequestHandler {
+        return <span class="fstat-no" title="function not covered" >(r</span>eq: express.Request, res: express.Response) =&gt; {
+<span class="cstat-no" title="statement not covered" >            logger.debug(req.body);</span>
+<span class="cstat-no" title="statement not covered" >            this.sendMail(req.body)</span>
+                .then(<span class="fstat-no" title="function not covered" >sendMailResult</span> =&gt; {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (sendMailResult) {</span>
+<span class="cstat-no" title="statement not covered" >                        return res.json({result: 'success'});</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    return res.status(500).json({result: 'error'})</span>
+                })
+        };
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jan 08 2018 03:11:30 GMT+1100 (AUS Eastern Daylight Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

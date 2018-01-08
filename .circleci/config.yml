@@ -68,11 +68,3 @@ jobs:
            filters:
              branches:
                only: master
-
-
-
-  deployment:
-    staging:
-      branch: master
-      heroku:
-        appname: morsmail

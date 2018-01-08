@@ -8,10 +8,10 @@ info:
   license:
     name: "UNLICENCED"
 
-host: "localhost:3050"
+host: "morsmail.herokuapp.com"
 basePath: "/"
 schemes:
-- "http"
+- "https"
 externalDocs:
   description: "GitHub Project"
   url: "http://github.com/nmors/mail-service"

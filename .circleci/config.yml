@@ -20,9 +20,6 @@ jobs:
           name: Test
           command: npm run test-ci
       - store_artifacts:
-          path: test-report.xml
-          prefix: tests
-      - store_artifacts:
           path: coverage
           prefix: coverage
       - store_test_results:

@@ -19,8 +19,11 @@ jobs:
       - run:
           name: Test
           command: npm run test-ci
+      - run:
+        name: copy test report
+        command: mkdir $CIRCLE_TEST_REPORTS/reports && cp test-report.xml $CIRCLE_TEST_REPORTS/reports
       - store_test_results:
-          path: test-report.xml
+          path: $CIRCLE_TEST_REPORTS/reports/test-report.xml
       - store_artifacts:
           path: coverage
           prefix: coverage

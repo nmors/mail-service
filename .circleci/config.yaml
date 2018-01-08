@@ -25,10 +25,12 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm run test-ci
+  test:
+    override:
+      - npm run test-ci
 
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: morsmail
+  deployment:
+    staging:
+      branch: master
+      heroku:
+        appname: morsmail

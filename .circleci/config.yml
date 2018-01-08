@@ -40,7 +40,7 @@ jobs:
           path: coverage
           prefix: coverage
       - store_test_results:
-          path: test-results.xml
+          path: ~/repo
 
       - save_cache:
           paths:
@@ -65,7 +65,7 @@ jobs:
       - run:
           name: Deploy Master to Heroku
           command: |
-            git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
+            echo "yes" | git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
             heroku restart
 
 workflows:

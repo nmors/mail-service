@@ -35,9 +35,7 @@ jobs:
       - save_cache:
           paths:
             - ~/repo
-          keys:
-          - built-project-{{ .BuildNum }}
-          - built-project-
+          key: built-project-{{ .BuildNum }}
 
   deploy:
     docker:
@@ -51,7 +49,6 @@ jobs:
       - run:
           name: Run heroku setup script
           command: bash .circleci/setup-heroku.sh
-
       - add_ssh_keys:
           fingerprints:
             - "5c:50:aa:5e:10:6b:3c:99:ce:a7:8d:40:ba:98:fc:35"

@@ -24,13 +24,12 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
-  test:
-    docker:
-      - image: circleci/node:8.9.4
-    working_directory: ~/repo
-    steps:
-      - checkout
+  # test:
+  #   docker:
+  #     - image: circleci/node:8.9.4
+  #   working_directory: ~/repo
+  #   steps:
+  #     - checkout
       - run:
           name: Test
           command: npm run test-ci
@@ -65,6 +64,7 @@ workflows:
   build-deploy:
     jobs:
       - build
+      # - test
       - deploy:
           requires:
             - build

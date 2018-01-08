@@ -70,9 +70,9 @@
       }
     },
     "notify": true,
+    "testResultsProcessor": "./node_modules/jest-junit-reporter",
     "reporters": [
-      "default",
-      "jest-junit-reporter"
+      "default"
     ]
   }
 }

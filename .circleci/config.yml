@@ -57,13 +57,11 @@ jobs:
           - built-project
       - add_ssh_keys:
           fingerprints:
+            - "43:af:66:cb:53:74:a9:91:ac:c9:6d:9e:f2:48:d2:f5"
             - "8b:48:5e:67:0e:c9:16:47:32:f2:87:0c:1f:c8:60:ad"
       - run:
           name: Run setup script
           command: bash .circleci/setup-heroku.sh
-      - add_ssh_keys:
-          fingerprints:
-            - "43:af:66:cb:53:74:a9:91:ac:c9:6d:9e:f2:48:d2:f5"
       - run:
           name: Deploy Master to Heroku
           command: |

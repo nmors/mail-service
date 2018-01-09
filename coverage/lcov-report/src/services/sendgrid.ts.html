@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">42.86% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>6/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">46.15% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>6/13</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -148,6 +148,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
@@ -159,6 +161,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,12 +173,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,13 +184,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -199,14 +199,16 @@
 import { MailService } from '../models/MailService';
 import { RequestInit, Response } from 'node-fetch';
 &nbsp;
+&nbsp;
+export interface Recipient {
+    email: string;
+}
 /**
  * This is the format which sendgrid API expects its request body to be in
  */
 export interface SendgridMessage {
     personalizations: [{
-        to: [{
-            email: string;
-        }];
+        to: Recipient[];
     }];
     from: {
         email: string;
@@ -233,12 +235,10 @@ export const createService = (fetch: any): MailService =&gt; {
 &nbsp;
             const url = `https://api.sendgrid.com/v3/mail/send`;
 &nbsp;
-            const data: SendgridMessage = {
-                personalizations: [{
-                    to: [{
-                        email: message.to,
-                    }]
-                }],
+            const to: Recipient[] = message.to.map(<span class="fstat-no" title="function not covered" >email</span> =&gt; (<span class="cstat-no" title="statement not covered" >{email})</span>);
+&nbsp;
+            const data: SendgridMessage = <span class="cstat-no" title="statement not covered" >{</span>
+                personalizations: [{ to }],
                 from: {
                     email: message.from,
                 },
@@ -249,9 +249,9 @@ export const createService = (fetch: any): MailService =&gt; {
                 }]
             };
 &nbsp;
-            const body: BodyInit = JSON.stringify(data);
+            const body: BodyInit = <span class="cstat-no" title="statement not covered" >JSON.stringify(data);</span>
 &nbsp;
-            const options: RequestInit = {
+            const options: RequestInit = <span class="cstat-no" title="statement not covered" >{</span>
                 method: 'POST',
                 body,
                 headers: {
@@ -260,13 +260,13 @@ export const createService = (fetch: any): MailService =&gt; {
                 }
             };
 &nbsp;
-            const response: Response = await fetch(url, options);
+            const response: Response = <span class="cstat-no" title="statement not covered" >await fetch(url, options);</span>
 &nbsp;
-            if (response &amp;&amp; response.status === 202) {
-                return true;
+<span class="cstat-no" title="statement not covered" >            if (response &amp;&amp; response.status === 202) {</span>
+<span class="cstat-no" title="statement not covered" >                return true;</span>
             }
 &nbsp;
-            throw new Error('Invalid response');
+<span class="cstat-no" title="statement not covered" >            throw new Error('Invalid response');</span>
         }
     }
 &nbsp;
@@ -277,7 +277,7 @@ export const createService = (fetch: any): MailService =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jan 08 2018 20:04:09 GMT+1100 (AUS Eastern Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jan 09 2018 15:46:31 GMT+1100 (AUS Eastern Daylight Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

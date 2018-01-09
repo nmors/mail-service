@@ -1,6 +1,7 @@
 # mail-service
 
-[![CircleCI](https://circleci.com/gh/nmors/mail-service/tree/master.svg?style=svg)](https://circleci.com/gh/nmors/mail-service/tree/master)
+master: [![CircleCI](https://circleci.com/gh/nmors/mail-service/tree/master.svg?style=svg)](https://circleci.com/gh/nmors/mail-service/tree/master)
+develop: [![CircleCI](https://circleci.com/gh/nmors/mail-service/tree/develop.svg?style=svg)](https://circleci.com/gh/nmors/mail-service/tree/develop)
 
 An reliable mail service written with TypeScript.
 
@@ -40,8 +41,9 @@ Please view the architecture document by clicking [HERE](./ARCHITECTURE.md)
 ## TODO
 
  - Add a queuing mechanism
+
+
  - Add authentication
- - Support sending to multiple recipients
  - Improve error handling & add a retry feature
  - Have a base MailService class that each mail service extends
  - Support for sending HTML emails (handlebars templates or something would be nice?)

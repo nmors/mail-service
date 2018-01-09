@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite id="0" name="C:\code\mail-service\src\services\sendgrid.test.ts" errors="0" package="C:\code\mail-service\src\services\sendgrid.test.ts" hostname="localhost" tests="6" failures="4" time="0.259" timestamp="2018-01-09T04:46:31">
+    <properties>
+    </properties>
+    <testcase classname="createService function tests" name="generates a MailService named sendgrid" time="0">
+    </testcase>
+    <testcase classname="createService function tests" name="generates a MailService with a send function" time="0">
+    </testcase>
+    <testcase classname="sendgrid MailService tests" name="send function calls mocked fetch" time="0">
+      <failure message="Error: expect(jest.fn()).toHaveBeenCalledTimes(1)
+
+Expected mock function to have been called one time, but it was called zero times.
+    at Object.test (C:\code\mail-service\src\services\sendgrid.test.ts:47:27)
+    at Object.asyncFn (c:\code\mail-service\node_modules\jest-jasmine2\build\jasmine_async.js:124:345)
+    at resolve (c:\code\mail-service\node_modules\jest-jasmine2\build\queue_runner.js:51:12)
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (c:\code\mail-service\node_modules\jest-jasmine2\build\queue_runner.js:40:274)
+    at promise.then (c:\code\mail-service\node_modules\jest-jasmine2\build\queue_runner.js:83:39)
+    at &lt;anonymous&gt;
+    at process._tickCallback (internal/process/next_tick.js:188:7)" type="AssertionError">
+      </failure>
+    </testcase>
+    <testcase classname="sendgrid MailService tests" name="send function calls real fetch" time="0">
+      <failure message="Error: expect(jest.fn()).toHaveBeenCalledTimes(1)
+
+Expected mock function to have been called one time, but it was called zero times.
+    at Object.test (C:\code\mail-service\src\services\sendgrid.test.ts:54:27)
+    at Object.asyncFn (c:\code\mail-service\node_modules\jest-jasmine2\build\jasmine_async.js:124:345)
+    at resolve (c:\code\mail-service\node_modules\jest-jasmine2\build\queue_runner.js:51:12)
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (c:\code\mail-service\node_modules\jest-jasmine2\build\queue_runner.js:40:274)
+    at promise.then (c:\code\mail-service\node_modules\jest-jasmine2\build\queue_runner.js:83:39)
+    at &lt;anonymous&gt;
+    at process._tickCallback (internal/process/next_tick.js:188:7)" type="AssertionError">
+      </failure>
+    </testcase>
+    <testcase classname="sendgrid MailService tests" name="send function calls mocked fetch and returns proper status" time="0">
+      <failure message="TypeError: message.to.map is not a function
+    at Object.send (C:\code\mail-service\src\services\sendgrid.ts:41:72)
+    at Object.test (C:\code\mail-service\src\services\sendgrid.test.ts:60:46)
+    at Object.asyncFn (c:\code\mail-service\node_modules\jest-jasmine2\build\jasmine_async.js:124:345)
+    at resolve (c:\code\mail-service\node_modules\jest-jasmine2\build\queue_runner.js:51:12)
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (c:\code\mail-service\node_modules\jest-jasmine2\build\queue_runner.js:40:274)
+    at promise.then (c:\code\mail-service\node_modules\jest-jasmine2\build\queue_runner.js:83:39)
+    at &lt;anonymous&gt;
+    at process._tickCallback (internal/process/next_tick.js:188:7)" type="AssertionError">
+      </failure>
+    </testcase>
+    <testcase classname="sendgrid MailService tests" name="send function throws when server returns 500 status" time="0">
+      <failure message="Error: expect(received).toEqual(expected)
+
+Expected value to equal:
+  [Error: Invalid response]
+Received:
+  [TypeError: message.to.map is not a function]
+
+Difference:
+
+- Expected
++ Received
+
+- [Error: Invalid response]
++ [TypeError: message.to.map is not a function]
+    at Object.&lt;anonymous&gt; (c:\code\mail-service\node_modules\expect\build\index.js:178:51)
+    at Generator.throw (&lt;anonymous&gt;)
+    at step (c:\code\mail-service\node_modules\expect\build\index.js:42:727)
+    at c:\code\mail-service\node_modules\expect\build\index.js:42:926
+    at &lt;anonymous&gt;
+    at process._tickCallback (internal/process/next_tick.js:188:7)" type="AssertionError">
+      </failure>
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="1" name="C:\code\mail-service\src\controllers\SendMailController.test.ts" errors="0" package="C:\code\mail-service\src\controllers\SendMailController.test.ts" hostname="localhost" tests="9" failures="0" time="0.182" timestamp="2018-01-09T04:46:31">
+    <properties>
+    </properties>
+    <testcase classname="sendMail method tests" name="will send a message with 2 working MailServices" time="0">
+    </testcase>
+    <testcase classname="sendMail method tests" name="will send a message with 100 working MailServices" time="0">
+    </testcase>
+    <testcase classname="sendMail method tests" name="will send a message when 3/4 services are down" time="0">
+    </testcase>
+    <testcase classname="sendMail method tests" name="will not send a message when 4/4 services are down" time="0">
+    </testcase>
+    <testcase classname="sendMail method tests" name="will still send a message if 9/10 services are down" time="0">
+    </testcase>
+    <testcase classname="sendMail method tests" name="will still send a message if 49/50 services are down" time="0">
+    </testcase>
+    <testcase classname="getMiddleware method tests" name="can get express middleware" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="2" name="C:\code\mail-service\src\services\mailgun.test.ts" errors="0" package="C:\code\mail-service\src\services\mailgun.test.ts" hostname="localhost" tests="6" failures="0" time="0.052" timestamp="2018-01-09T04:46:31">
+    <properties>
+    </properties>
+    <testcase classname="createService function tests" name="generates a MailService named mailgun" time="0">
+    </testcase>
+    <testcase classname="createService function tests" name="generates a MailService with a send function" time="0">
+    </testcase>
+    <testcase classname="mailgun MailService tests" name="send function calls mocked fetch" time="0">
+    </testcase>
+    <testcase classname="mailgun MailService tests" name="send function calls real fetch" time="0">
+    </testcase>
+    <testcase classname="mailgun MailService tests" name="send function calls mocked fetch and returns proper status" time="0">
+    </testcase>
+    <testcase classname="mailgun MailService tests" name="send function throws when server returns 500 status" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+</testsuites>

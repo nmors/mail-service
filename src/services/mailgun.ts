@@ -9,7 +9,7 @@ import { RequestInit, Response } from 'node-fetch';
  */
 export interface MailgunMessage {
     from: string;
-    to: string;
+    to: string[];
     subject: string;
     text: string;
 }

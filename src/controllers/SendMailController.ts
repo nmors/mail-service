@@ -15,6 +15,7 @@ import { Reference } from '@firebase/database/dist/esm/src/api/Reference';
 export class SendMailController {
     private mailServices: MailService[];
     private readonly maximumRetries = 10;
+
     /**
      * @param mailServices you can inject as many MailServices as you want here for extra reliability
      */
@@ -123,15 +124,6 @@ export class SendMailController {
             });
     }
 
-    private setStatus(ref: Reference, status: string) {
-        ref.transaction(function(obj: any) {
-            if (obj) {
-                obj.status = status;
-            }
-            return obj;
-        });
-    }
-
     /**
      * Listen for pending attempts with a timestamp less then now, which has not yet exceeded the failedAttemptCount.
      *
@@ -147,7 +139,7 @@ export class SendMailController {
             .on('child_added', (attemptSnapshot: DataSnapshot) => {
                 const attemptNo = attemptSnapshot.val().attemptNo;
                 const timestamp = attemptSnapshot.val().timestamp;
-                const tryToSendInMillis = timestamp - Date.now() || 0;
+                const tryToSendInMillis = timestamp - Date.now() || 0;  // <-- if the timestamp is in the past then the message will immediately send
                 if (attemptNo > this.maximumRetries) {
                     logger.debug('exceeded max retries! email id=' + emailReference.key);
                     return;
@@ -201,5 +193,14 @@ export class SendMailController {
             .then(({key}: DataSnapshot) => {
                 logger.error(`created a new attempt id=${key} for email id=${emailReference.key} scheduled for=${timestamp} which is in ${(timestamp - Date.now()) / 1000} seconds`);
             });
+    }
+
+    private setStatus(ref: Reference, status: string) {
+        ref.transaction(function(obj: any) {
+            if (obj) {
+                obj.status = status;
+            }
+            return obj;
+        });
     }
 }

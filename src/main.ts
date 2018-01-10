@@ -1,9 +1,8 @@
 import * as dotenv from 'dotenv';
-import { logger } from './logger';
-import { SendMailController } from './controllers/sendMailController';
-import { Server } from './Server';
-
 dotenv.config();
+
+import { logger } from './logger';
+import { Server } from './api/Server';
 
 const server = new Server();
 server.start();

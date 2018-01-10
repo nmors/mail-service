@@ -4,8 +4,8 @@ import * as fs from 'fs';
 import * as jsyaml from 'js-yaml';
 import * as path from 'path';
 import * as swaggerTools from 'swagger-tools';
-import { logger } from './logger';
-import { SendMailController } from './controllers/SendMailController';
+import { logger } from '../logger';
+import { SendMailController } from '../controllers/SendMailController';
 
 export class Server {
 

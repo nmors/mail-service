@@ -248,7 +248,8 @@
 203
 204
 205
-206</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+206
+207</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -265,6 +266,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -374,15 +376,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -448,6 +441,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -470,6 +472,7 @@ import { Reference } from '@firebase/database/dist/esm/src/api/Reference';
 export class SendMailController {
     private mailServices: MailService[];
     private readonly maximumRetries = 10;
+&nbsp;
     /**
      * @param mailServices you can inject as many MailServices as you want here for extra reliability
      */
@@ -578,15 +581,6 @@ export class SendMailController {
             });
     }
 &nbsp;
-    private <span class="fstat-no" title="function not covered" >setStatus</span>(ref: Reference, status: string) {
-<span class="cstat-no" title="statement not covered" >        ref.transaction(<span class="fstat-no" title="function not covered" >function(</span>obj: any) {</span>
-<span class="cstat-no" title="statement not covered" >            if (obj) {</span>
-<span class="cstat-no" title="statement not covered" >                obj.status = status;</span>
-            }
-<span class="cstat-no" title="statement not covered" >            return obj;</span>
-        });
-    }
-&nbsp;
     /**
      * Listen for pending attempts with a timestamp less then now, which has not yet exceeded the failedAttemptCount.
      *
@@ -602,7 +596,7 @@ export class SendMailController {
             .on('child_added', <span class="fstat-no" title="function not covered" >(a</span>ttemptSnapshot: DataSnapshot) =&gt; {
                 const attemptNo = <span class="cstat-no" title="statement not covered" >attemptSnapshot.val().attemptNo;</span>
                 const timestamp = <span class="cstat-no" title="statement not covered" >attemptSnapshot.val().timestamp;</span>
-                const tryToSendInMillis = <span class="cstat-no" title="statement not covered" >timestamp - Date.now() || 0;</span>
+                const tryToSendInMillis = <span class="cstat-no" title="statement not covered" >timestamp - Date.now() || 0;</span>  // &lt;-- if the timestamp is in the past then the message will immediately send
 <span class="cstat-no" title="statement not covered" >                if (attemptNo &gt; this.maximumRetries) {</span>
 <span class="cstat-no" title="statement not covered" >                    logger.debug('exceeded max retries! email id=' + emailReference.key);</span>
 <span class="cstat-no" title="statement not covered" >                    return;</span>
@@ -657,6 +651,15 @@ export class SendMailController {
 <span class="cstat-no" title="statement not covered" >                logger.error(`created a new attempt id=${key} for email id=${emailReference.key} scheduled for=${timestamp} which is in ${(timestamp - Date.now()) / 1000} seconds`);</span>
             });
     }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >setStatus</span>(ref: Reference, status: string) {
+<span class="cstat-no" title="statement not covered" >        ref.transaction(<span class="fstat-no" title="function not covered" >function(</span>obj: any) {</span>
+<span class="cstat-no" title="statement not covered" >            if (obj) {</span>
+<span class="cstat-no" title="statement not covered" >                obj.status = status;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            return obj;</span>
+        });
+    }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -664,7 +667,7 @@ export class SendMailController {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jan 10 2018 23:57:12 GMT+1100 (AUS Eastern Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jan 11 2018 00:04:04 GMT+1100 (AUS Eastern Daylight Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\code\mail-service\src\controllers\SendMailController.test.ts" errors="0" package="C:\code\mail-service\src\controllers\SendMailController.test.ts" hostname="localhost" tests="9" failures="0" time="1.572" timestamp="2018-01-10T12:57:11">
+  <testsuite id="0" name="C:\code\mail-service\src\controllers\SendMailController.test.ts" errors="0" package="C:\code\mail-service\src\controllers\SendMailController.test.ts" hostname="localhost" tests="9" failures="0" time="0.606" timestamp="2018-01-10T13:04:03">
     <properties>
     </properties>
     <testcase classname="sendMail method tests" name="will send a message with 2 working MailServices" time="0">

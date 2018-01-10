@@ -1,9 +1,9 @@
 # Architecture
 
 ```
-                                  ,--> [MailService] --> [3rd Party (mailgun)]
-[API] --> [SendMailController] --<
-                                  `--> [MailService] --> [3rd Party (sendgrid)]
+                                                 ,--> [MailService] --> [3rd Party (mailgun)]
+[API] --> [SendMailController] --> [Firebase] --<
+                                                 `--> [MailService] --> [3rd Party (sendgrid)]
 ```
 
 ## Sending Mail

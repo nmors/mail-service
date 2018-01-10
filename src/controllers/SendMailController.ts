@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import * as bluebird from 'bluebird';
-import * as express from 'express'; 
+import * as express from 'express';
 import * as mailgun from '../services/mailgun';
 import * as sendgrid from '../services/sendgrid';
 import fetch, { RequestInit, Response } from 'node-fetch';
@@ -14,7 +14,7 @@ import { Reference } from '@firebase/database/dist/esm/src/api/Reference';
 
 export class SendMailController {
     private mailServices: MailService[];
-
+    private readonly maximumRetries = 10;
     /**
      * @param mailServices you can inject as many MailServices as you want here for extra reliability
      */
@@ -81,7 +81,8 @@ export class SendMailController {
 
             emailsRef.push(Object.assign({}, req.body, {
                 status: 'pending',
-                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                // timestamp: firebase.database.ServerValue.TIMESTAMP,
+                timestamp: Date.now(),
             }))
             .then((emailSnapshot: DataSnapshot) => {
                 const id = emailSnapshot.key;
@@ -90,20 +91,17 @@ export class SendMailController {
                     status: 'pending',
                 });
             });
-            // .catch((err: Error) => {
-            //     res.status(500).json({
-            //         message: 'failed to queue!'
-            //     })
-            // });
         };
     }
 
+    /**
+     * start listening for pending emails in firebase
+     */
     private listenForPendingEmails() {
         firebase.database()
             .ref('/emails')
             .orderByChild('status')
             .equalTo('pending')
-            .orderByPriority()
             .on('child_added', (emailSnapshot: DataSnapshot | any) => {
                 if (!emailSnapshot) {
                     return logger.debug('could not get pending emails!');
@@ -117,22 +115,12 @@ export class SendMailController {
                 }
 
                 logger.debug('listening for attempts...')
-                this.listenForAttempt(emailReference, message);
+                this.listenForAttempt(emailSnapshot, message);
 
-                logger.debug('creating new attempt');
-                this.createNewAttempt(emailReference);
+                logger.debug('creating Initial attempt for email with id=' + emailSnapshot.key);
+                this.createNewAttempt(emailReference, Date.now() + 5000);
                 return;
-            })
-    }
-
-    // Update the attempt count. This is probably not really needed! remove?
-    private updateAttemptCount(emailRef: Reference) {
-        emailRef.transaction(function(email: any) {
-          if (email) {
-            email.attemptCount = email.attempts ? Object.keys(email.attempts).length : 0;
-          }
-          return email;
-        });
+            });
     }
 
     private setStatus(ref: Reference, status: string) {
@@ -144,46 +132,74 @@ export class SendMailController {
         });
     }
 
-    private listenForAttempt(emailReference: Reference, message: Message) {
+    /**
+     * Listen for pending attempts with a timestamp less then now, which has not yet exceeded the failedAttemptCount.
+     *
+     * @param emailReference
+     * @param message
+     */
+    private listenForAttempt(emailSnapshot: DataSnapshot, message: Message) {
+        const emailReference: Reference = emailSnapshot.ref;
         emailReference
             .child('attempts')
             .orderByChild('status')
             .equalTo('pending')
             .on('child_added', (attemptSnapshot: DataSnapshot) => {
-                this.sendMail(message)
-                    .then(sendMailResult => {
-                        if (sendMailResult) {
-                            this.setStatus(attemptSnapshot.ref, 'success');
-                            this.setStatus(emailReference, 'success');
-                        } else {
-                            this.setStatus(attemptSnapshot.ref, 'failed');
-                        }
-                    }).catch(err => {
-
-                    })
-                    logger.debug('detected new attempt');
-                    logger.debug('set status to success!');
+                const attemptNo = attemptSnapshot.val().attemptNo;
+                const timestamp = attemptSnapshot.val().timestamp;
+                const tryToSendInMillis = timestamp - Date.now() || 0;
+                if (attemptNo > this.maximumRetries) {
+                    logger.debug('exceeded max retries! email id=' + emailReference.key);
+                    return;
+                }
+                logger.debug(`detected pending attempt no=${attemptNo} that will execute in ${tryToSendInMillis} milliseconds id=${attemptSnapshot.key}`);
+                setTimeout(() => this.sendQueuedMessage(message, emailReference, attemptSnapshot), tryToSendInMillis);
             },
             (error: Error) => logger.debug('failed to add attempt listener')
         );
     }
 
-    private createNewAttempt(emailReference: Reference) {
-        // Create a new attempt
+    private sendQueuedMessage(message: Message, emailReference: Reference, attemptSnapshot: DataSnapshot) {
+        this.sendMail(message)
+            .then(sendMailResult => {
+                if (sendMailResult) {
+                    this.setStatus(attemptSnapshot.ref, 'success');
+                    this.setStatus(emailReference, 'success');
+                } else {
+                    throw new Error('sendMail failed.')
+                }
+            }).catch(err => {
+                logger.error(`email message failed to send with id=${emailReference.key} and attempt id=${attemptSnapshot.key}`);
+                this.setStatus(attemptSnapshot.ref, 'failed');
+                this.scheduleRetry(emailReference);
+            });
+    }
+
+    private scheduleRetry(emailReference: Reference) {
+        emailReference.transaction((email: any) => {
+            if (email) {
+                const failedAttemptCount: number = email.attempts ? Object.keys(email.attempts).length : 0;
+                email.failedAttemptCount = failedAttemptCount;
+            }
+            return email;
+        }, (err, b, email) => {
+            if (email) {
+                const millisToWaitBeforeNextAttempt: number = (Math.exp(email.val().failedAttemptCount) * 1000) + 10000;
+                this.createNewAttempt(emailReference, Date.now() + millisToWaitBeforeNextAttempt, email.val().failedAttemptCount);
+            }
+        });
+    }
+
+    private createNewAttempt(emailReference: Reference, timestamp = Date.now(), attemptNo = 0) {
         emailReference
             .child('attempts')
             .push({
-                provider: 'mailgrid',
                 status: 'pending',
-                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                timestamp,
+                attemptNo,
             })
-            .then(({key}: DataSnapshot) => {});
-
-        // Update the attempt count. This is probably not really needed!
-        emailReference
-            .child('attempts').on('value',
-            (dataSnapshot: DataSnapshot) => this.updateAttemptCount(emailReference),
-            (error: Error) => logger.debug('failed to update attempt count'),
-        );
+            .then(({key}: DataSnapshot) => {
+                logger.error(`created a new attempt id=${key} for email id=${emailReference.key} scheduled for=${timestamp} which is in ${(timestamp - Date.now()) / 1000} seconds`);
+            });
     }
 }

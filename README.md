@@ -40,10 +40,11 @@ Please view the architecture document by clicking [HERE](./ARCHITECTURE.md)
 
 ## TODO
 
- - performance; add a db index on the 'status' field so pending message lookup is faster and/or move successful messages elsewhere
+ - add firebase creds to circleci and heroku so develop branch builds
 
  - Improve error handling & add a retry feature
  - Improve test coverage
+ - performance; add a db index on the 'status' field so pending message lookup is faster and/or move successful messages elsewhere
  - Have a base MailService class that each mail service extends
  - Add authentication
  - Support for sending HTML emails (handlebars templates or something would be nice?)

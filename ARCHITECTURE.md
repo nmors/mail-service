@@ -11,6 +11,7 @@
 The process of sending mail is broken up into three stages.
   - API
   - Controller
+  - Firebase
   - Services
 
 In order to send mail through the application, you must use the HTTP REST API.
@@ -31,14 +32,47 @@ Validation on the api is done via swagger validator. It will check the JSON sche
 
 ### SendMailController
 
-The controller will be connecting the API up to the services. After the API receives a message, it will:
+The controller will be responsible for queueing up mail to be sent:
  - Validate the message
- - dispatch it to a service
+ - listens for pending messages in firebase
+ - listens for pending attempts in firebase and schedules them.
+ - update the status of an attempt to success or failed
  - retry using another service if necessary
- - relay the overall result as a response back to the API
+
+ - sends response back to 
+
+
+ ### MailStatusController
+
+This controller is responsible for message delivery status interaction:
+  - allows user to check the status of the message
+  - TODO
+
+
 
 The SendMailController is designed in a way where new services can be added easily in the future.
 
+### Firebase
+ - receives new emails
+ - receives new attempts when previous fails
+ - sends callback to SendMailController when new emails are added
+ - sends callback to SendMailController when new attempts are scheduled
+
+#### Data Model
+ - An email can have many attempts
+ - both status of email and attempts can either be one of three values: [pending, success, failed]
+   emails: [
+     {
+       key,
+       timestamp,
+       status,
+       to: [email],
+       from,
+       subject,
+       text,
+       attempts: [ {status, timestamp} ]
+     }
+  ]
 
 ### Mail Services
 

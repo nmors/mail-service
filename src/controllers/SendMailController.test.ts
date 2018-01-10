@@ -2,7 +2,7 @@ import { MailService } from '../models/MailService';
 import { SendMailController } from './SendMailController';
 
 const validMessage = {
-    "to": "nathan@mors.me",
+    "to": ["nathan@mors.me"],
     "from": "nathan@mors.me",
     "subject": "Valid Subject",
     "text": "This should work"

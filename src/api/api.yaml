@@ -51,8 +51,11 @@ definitions:
     - "text"
     properties:
       to:
-        type: "string"
-        example: "nathan@mors.me"
+        type: "array"
+        example:
+        - "nathan@mors.me"
+        items:
+          type: "string"
       from:
         type: "string"
         example: "nathan@mors.me"

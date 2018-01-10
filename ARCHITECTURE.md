@@ -33,30 +33,28 @@ Validation on the api is done via swagger validator. It will check the JSON sche
 ### SendMailController
 
 The controller will be responsible for queueing up mail to be sent:
- - Validate the message
- - listens for pending messages in firebase
- - listens for pending attempts in firebase and schedules them.
+ - Validate and queue the message
+ - sends response back to user with the ID of the message
+ - listens for pending emails and attempts in firebase and schedules delivery.
  - update the status of an attempt to success or failed
  - retry using another service if necessary
 
- - sends response back to 
-
-
- ### MailStatusController
-
-This controller is responsible for message delivery status interaction:
-  - allows user to check the status of the message
-  - TODO
-
-
-
 The SendMailController is designed in a way where new services can be added easily in the future.
 
+
+### MailStatusController
+
+This controller is responsible for message delivery status interaction:
+  - TODO: allows user to check the status of the message
+  - TODO: checks the mailservices if has been successful on their side
+  - TODO: ...
+
+
 ### Firebase
- - receives new emails
- - receives new attempts when previous fails
+ - stores emails and tracks attempts
  - sends callback to SendMailController when new emails are added
  - sends callback to SendMailController when new attempts are scheduled
+
 
 #### Data Model
  - An email can have many attempts
@@ -74,6 +72,7 @@ The SendMailController is designed in a way where new services can be added easi
      }
   ]
 
+
 ### Mail Services
 
 each service in the application is responsible for talking to the respective 3rd party API in order to have it dispatch an email to the intended recipient. They have responsibility of:
@@ -81,7 +80,6 @@ each service in the application is responsible for talking to the respective 3rd
  - performing a http request to the 3rd party
  - returning the result back to the controller if successful
  - throwing an error at the controller if failed
-
 
 
 ## Libraries

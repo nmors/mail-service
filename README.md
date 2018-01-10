@@ -40,12 +40,11 @@ Please view the architecture document by clicking [HERE](./ARCHITECTURE.md)
 
 ## TODO
 
- - Add a queuing mechanism
+ - performance; add a db index on the 'status' field so pending message lookup is faster and/or move successful messages elsewhere
 
-
- - Add authentication
  - Improve error handling & add a retry feature
- - Have a base MailService class that each mail service extends
- - Support for sending HTML emails (handlebars templates or something would be nice?)
  - Improve test coverage
-
+ - Have a base MailService class that each mail service extends
+ - Add authentication
+ - Support for sending HTML emails (handlebars templates or something would be nice?)
+ - investigate using firebase feature .setWithPriority() and .orderByPriority()

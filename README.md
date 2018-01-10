@@ -41,7 +41,9 @@ Please view the architecture document by clicking [HERE](./ARCHITECTURE.md)
 ## TODO
 
  - add firebase creds to circleci and heroku so develop branch builds
-
+ - add a GET /message/:id endpoint to check status of message deliveries
+ - potentially break apart SendMailController, as it may have too many responsibilities
+ - improve / fix request validation
  - Improve error handling & add a retry feature
  - Improve test coverage
  - performance; add a db index on the 'status' field so pending message lookup is faster and/or move successful messages elsewhere

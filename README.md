@@ -42,6 +42,7 @@ Please view the architecture document by clicking [HERE](./ARCHITECTURE.md)
 
  - add firebase creds to circleci and heroku so develop branch builds
  - add a GET /message/:id endpoint to check status of message deliveries
+ - check the mailservice if has been successful on their side
  - potentially break apart SendMailController, as it may have too many responsibilities
  - improve / fix request validation
  - Improve error handling & add a retry feature

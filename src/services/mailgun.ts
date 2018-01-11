@@ -9,7 +9,7 @@ import { RequestInit, Response } from 'node-fetch';
  */
 export interface MailgunMessage {
     from: string;
-    to: string;
+    to: string[];
     subject: string;
     text: string;
 }
@@ -29,8 +29,10 @@ export const createService = (fetch: any): MailService => {
 
             const url = `https://api.mailgun.net/v3/${process.env.MAILGUN_DOMAIN}/messages`;
 
-            // Mailgun happens to accept data in the same way the MailService model was designed
-            const data: MailgunMessage | any = message;
+            // Mailgun happens to accept data in almost the same way the MailService model was designed
+            const data: MailgunMessage | any = Object.assign({}, message, {
+                to: message.to.join(',')
+            });
 
             const body: BodyInit = new FormData();
             for (const key in message) {

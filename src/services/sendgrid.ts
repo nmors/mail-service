@@ -2,14 +2,16 @@ import { logger } from '../logger';
 import { MailService } from '../models/MailService';
 import { RequestInit, Response } from 'node-fetch';
 
+
+export interface Recipient {
+    email: string;
+}
 /**
  * This is the format which sendgrid API expects its request body to be in
  */
 export interface SendgridMessage {
     personalizations: [{
-        to: [{
-            email: string;
-        }];
+        to: Recipient[];
     }];
     from: {
         email: string;
@@ -36,12 +38,10 @@ export const createService = (fetch: any): MailService => {
 
             const url = `https://api.sendgrid.com/v3/mail/send`;
 
+            const to: Recipient[] = message.to.map(email => ({email}));
+
             const data: SendgridMessage = {
-                personalizations: [{
-                    to: [{
-                        email: message.to,
-                    }]
-                }],
+                personalizations: [{ to }],
                 from: {
                     email: message.from,
                 },

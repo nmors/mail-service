@@ -1,9 +1,9 @@
 # Architecture
 
 ```
-                                  ,--> [MailService] --> [3rd Party (mailgun)]
-[API] --> [SendMailController] --<
-                                  `--> [MailService] --> [3rd Party (sendgrid)]
+                                                 ,--> [MailService] --> [3rd Party (mailgun)]
+[API] --> [SendMailController] --> [Firebase] --<
+                                                 `--> [MailService] --> [3rd Party (sendgrid)]
 ```
 
 ## Sending Mail
@@ -11,9 +11,19 @@
 The process of sending mail is broken up into three stages.
   - API
   - Controller
+  - Firebase
   - Services
 
 In order to send mail through the application, you must use the HTTP REST API.
+
+Each message will have 10 attempts before the message itself fails. This value is configurable
+
+#### Message Lifecycle
+ - 'pending' => 'failed' | 'success'
+
+#### Attempt Lifecycle
+ - 'pending' => 'failed' | 'success'
+
 
 ### API
 
@@ -26,18 +36,50 @@ It expects JSON request body with 4 fields, all of which are strings. (to, from,
 
 
 #### Validation
-Validation on the api is done via swagger validator. It will check the JSON schema generated from the API specification against all incoming requests.
+Validation on the api is done via swagger validator. It will check the JSON schema generated from the API specification against all incoming requests. TODO
 
 
 ### SendMailController
 
-The controller will be connecting the API up to the services. After the API receives a message, it will:
- - Validate the message
- - dispatch it to a service
+The controller will be responsible for queueing up mail to be sent:
+ - Validate and queue the message
+ - sends response back to user with the ID of the message
+ - listens for pending emails and attempts in firebase and schedules delivery.
+ - update the status of an attempt to success or failed
  - retry using another service if necessary
- - relay the overall result as a response back to the API
 
 The SendMailController is designed in a way where new services can be added easily in the future.
+
+
+### MailStatusController
+
+This controller is responsible for message delivery status interaction:
+ - Given an id, queries firebase for message state
+ - allows user to check the status of the message and attempts associated with the message
+ - TODO: checks the mailservices if has been successful on their side
+
+
+### Firebase
+ - stores emails and tracks attempts
+ - sends callback to SendMailController when new emails are added
+ - sends callback to SendMailController when new attempts are scheduled
+
+
+#### Data Model
+ - An email can have many attempts
+ - both status of email and attempts can either be one of three values: [pending, success, failed]
+   emails: [
+     {
+       key,
+       timestamp,
+       status,
+       to: [email],
+       from,
+       subject,
+       text,
+       attempts: [ {status, timestamp} ]
+     }
+  ]
 
 
 ### Mail Services
@@ -47,7 +89,6 @@ each service in the application is responsible for talking to the respective 3rd
  - performing a http request to the 3rd party
  - returning the result back to the controller if successful
  - throwing an error at the controller if failed
-
 
 
 ## Libraries

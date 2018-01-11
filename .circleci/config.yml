@@ -17,23 +17,19 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
-          name: Test
+          name: Run Unit Tests
           command: npm run test-ci
       - run:
-          name: copy test report
+          name: Copy Jest test report
           command: mkdir -p /tmp/reports/jest && cp test-report.xml /tmp/reports/jest
-      - run:
-          name: copy coverage report
-          command: cp -R coverage /tmp/reports
-      - run:
-          name: list the reports
-          command: ls /tmp/reports
+      # - run:
+      #     name: Copy Test Coverage Report
+      #     command: cp -R coverage /tmp/reports
       - store_test_results:
-          # path: /tmp/reports/test-report.xml
           path: /tmp/reports
-      # - store_artifacts:
-      #     path: coverage
-      #     prefix: coverage
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
       - save_cache:
           paths:
             - ~/repo

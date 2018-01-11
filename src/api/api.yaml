@@ -38,30 +38,29 @@ paths:
       responses:
         202:
           description: "Accepted the message"
-        400:
+        500:
           description: "Invalid input"
 
-  # /message/{id}:
-  #   get:
-  #     tags:
-  #     - "message"
-  #     summary: "Retrieves the delivery status for the given message id"
-  #     description: "Pass the id of the message as a URI parameter, and the API will return you the status of the message."
-  #     operationId: "getMessage"
-  #     produces:
-  #     - "application/json"
-  #     parameters:
-  #     - in: "path"
-  #       name: "id"
-  #       description: "the ID of the message to retrieve"
-  #       required: true
-  #       schema:
-  #         $ref: "#/definitions/MessageId"
-  #     responses:
-  #       200:
-  #         description: "Retreived the message"
-  #       400:
-  #         description: "Invalid input"
+  /message/{id}:
+    get:
+      tags:
+      - "message"
+      summary: "Retrieves the delivery status for the given message id"
+      description: "Pass the id of the message as a URI parameter, and the API will return you the status of the message."
+      operationId: "getMessage"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of pet to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Retreived the message"
+        500:
+          description: "Invalid input"
 
   /audit:
     get:

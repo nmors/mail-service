@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">36% </span>
+        <span class="strong">33.77% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>27/75</span>
+        <span class='fraction'>26/77</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.74% </span>
+        <span class="strong">21.43% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>5/23</span>
+        <span class='fraction'>6/28</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">37.04% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>10/27</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">34.72% </span>
+        <span class="strong">32.43% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>25/72</span>
+        <span class='fraction'>24/74</span>
       </div>
     </div>
   </div>
@@ -249,17 +249,24 @@
 204
 205
 206
-207</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+207
+208
+209
+210
+211
+212
+213
+214
+215</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -273,8 +280,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -287,6 +298,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -372,6 +384,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -455,9 +471,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as dotenv from 'dotenv';
-dotenv.config();
-&nbsp;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 import * as bluebird from 'bluebird';
 import * as express from 'express';
 import * as mailgun from '../services/mailgun';
@@ -465,20 +479,24 @@ import * as sendgrid from '../services/sendgrid';
 import fetch, { RequestInit, Response } from 'node-fetch';
 import { logger } from '../logger';
 import { MailService, Message } from '../models/MailService';
-import firebase from '../database/firebase';
+import firebaseDatabase from '../database/firebase';
 import { DataSnapshot } from '@firebase/database/dist/esm/src/api/DataSnapshot';
 import { Reference } from '@firebase/database/dist/esm/src/api/Reference';
+import { FirebaseDatabase } from '@firebase/database-types';
 &nbsp;
 export class SendMailController {
     private mailServices: MailService[];
     private readonly maximumRetries = 10;
+    private database: FirebaseDatabase;
 &nbsp;
     /**
      * @param mailServices you can inject as many MailServices as you want here for extra reliability
      */
     constructor(
+        database: FirebaseDatabase,
         ...mailServices: MailService[],
     ) {
+        this.database = database;
         this.mailServices = [ ...mailServices ];
         this.listenForPendingEmails();
     }
@@ -491,8 +509,10 @@ export class SendMailController {
      */
     public static bootstrap(
         fetchProvider: any = fetch,
+        database: FirebaseDatabase = firebaseDatabase,
     ) {
         return new SendMailController(
+            database,
             mailgun.createService(fetchProvider),
             sendgrid.createService(fetchProvider),
         );
@@ -535,7 +555,7 @@ export class SendMailController {
     public getMiddleware(): express.RequestHandler {
         return <span class="fstat-no" title="function not covered" >(r</span>eq: express.Request, res: express.Response) =&gt; {
 <span class="cstat-no" title="statement not covered" >            logger.debug(req.body);</span>
-            const emailsRef = <span class="cstat-no" title="statement not covered" >firebase.database().ref('/emails');</span>
+            const emailsRef = <span class="cstat-no" title="statement not covered" >this.database.ref('/emails');</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >            emailsRef.push(Object.assign({}, req.body, {</span>
                 status: 'pending',
@@ -556,7 +576,7 @@ export class SendMailController {
      * start listening for pending emails in firebase
      */
     private listenForPendingEmails() {
-        firebase.database()
+        this.database
             .ref('/emails')
             .orderByChild('status')
             .equalTo('pending')
@@ -575,8 +595,12 @@ export class SendMailController {
 <span class="cstat-no" title="statement not covered" >                logger.debug('listening for attempts...')</span>
 <span class="cstat-no" title="statement not covered" >                this.listenForAttempt(emailSnapshot, message);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                logger.debug('creating Initial attempt for email with id=' + emailSnapshot.key);</span>
-<span class="cstat-no" title="statement not covered" >                this.createNewAttempt(emailReference, Date.now() + 5000);</span>
+                const existingAttempts = <span class="cstat-no" title="statement not covered" >emailSnapshot.val().attempts;</span>
+                const existingttemptCount: number = <span class="cstat-no" title="statement not covered" >existingAttempts ? Object.keys(existingAttempts).length : 0;</span>
+<span class="cstat-no" title="statement not covered" >                if (existingttemptCount === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                    logger.debug('creating Initial attempt for email with id=' + emailSnapshot.key);</span>
+<span class="cstat-no" title="statement not covered" >                    this.createNewAttempt(emailReference, Date.now() + 5000);</span>
+                }
 <span class="cstat-no" title="statement not covered" >                return;</span>
             });
     }
@@ -601,7 +625,7 @@ export class SendMailController {
 <span class="cstat-no" title="statement not covered" >                    logger.debug('exceeded max retries! email id=' + emailReference.key);</span>
 <span class="cstat-no" title="statement not covered" >                    return;</span>
                 }
-<span class="cstat-no" title="statement not covered" >                logger.debug(`detected pending attempt no=${attemptNo} that will execute in ${tryToSendInMillis} milliseconds id=${attemptSnapshot.key}`);</span>
+<span class="cstat-no" title="statement not covered" >                logger.debug(`detected pending attempt no=${attemptNo} id=${attemptSnapshot.key} that will retry in ${tryToSendInMillis} milliseconds (timestamp=${timestamp}) for email id=${emailSnapshot.key}`);</span>
 <span class="cstat-no" title="statement not covered" >                setTimeout(<span class="fstat-no" title="function not covered" >() </span>=&gt; <span class="cstat-no" title="statement not covered" >this.sendQueuedMessage(message, emailReference, attemptSnapshot),</span> tryToSendInMillis);</span>
             },
 <span class="fstat-no" title="function not covered" >            (e</span>rror: Error) =&gt; <span class="cstat-no" title="statement not covered" >logger.debug('failed to add attempt listener')</span>
@@ -667,7 +691,7 @@ export class SendMailController {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jan 11 2018 00:04:04 GMT+1100 (AUS Eastern Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jan 12 2018 01:00:50 GMT+1100 (AUS Eastern Daylight Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

@@ -8,5 +8,5 @@ export interface Message {
 
 export interface MailService {
     name: string,
-    send: (message: Message) => Promise<boolean>;
+    send: (message: Message) => Promise<boolean|void>;
 }

@@ -36,10 +36,45 @@ paths:
         schema:
           $ref: "#/definitions/Message"
       responses:
-        400:
-          description: "Invalid input"
         202:
           description: "Accepted the message"
+        400:
+          description: "Invalid input"
+
+  # /message/{id}:
+  #   get:
+  #     tags:
+  #     - "message"
+  #     summary: "Retrieves the delivery status for the given message id"
+  #     description: "Pass the id of the message as a URI parameter, and the API will return you the status of the message."
+  #     operationId: "getMessage"
+  #     produces:
+  #     - "application/json"
+  #     parameters:
+  #     - in: "path"
+  #       name: "id"
+  #       description: "the ID of the message to retrieve"
+  #       required: true
+  #       schema:
+  #         $ref: "#/definitions/MessageId"
+  #     responses:
+  #       200:
+  #         description: "Retreived the message"
+  #       400:
+  #         description: "Invalid input"
+
+  /audit:
+    get:
+      tags:
+      - "audit"
+      summary: "Retrieves the audit logs"
+      description: "this endpoint will return a list of audit messages. they are JSON objects seperated by new line."
+      operationId: "getAudit"
+      responses:
+        200:
+          description: "returns the audit log"
+        500:
+          description: "Server Error"
 
 definitions:
   Message:
@@ -65,3 +100,5 @@ definitions:
       text:
         type: "string"
         example: "Hey Mate! Let's go for drinks this Friday night!"
+  MessageId:
+    type: "string"

@@ -1,5 +1,12 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import { MailService } from '../models/MailService';
 import { SendMailController } from './SendMailController';
+import { FirebaseDatabase } from '@firebase/database-types';
+
+import firebaseDatabase from '../database/firebase';
+const testDb: FirebaseDatabase = firebaseDatabase;
 
 const validMessage = {
     "to": ["nathan@mors.me"],
@@ -8,21 +15,21 @@ const validMessage = {
     "text": "This should work"
 };
 
-const createWorkingMockMailService = (name): MailService => {
+const createWorkingMockMailService = (name: string): MailService => {
     return {
         name,
         async send(message) { return true; }
     }
 };
 
-const createFailingMockMailService = (name): MailService => {
+const createFailingMockMailService = (name: string): MailService => {
     return {
         name,
         async send(message) { throw new Error('Mail service down.'); }
     }
 };
 
-const generateLotsOfWorkingServices = function*(numberOfServices) {
+const generateLotsOfWorkingServices = function*(numberOfServices: number) {
     for (let i = 0; i < numberOfServices; i++) {
         yield createWorkingMockMailService('WorkingMailService' + i);
     }
@@ -40,6 +47,7 @@ afterEach(() => {});
 describe('sendMail method tests', () => {
     test('will send a message with 2 working MailServices', async () => {
         const sendMailController: SendMailController = new SendMailController(
+            testDb,
             ...generateLotsOfWorkingServices(2),
         );
         await expect(sendMailController.sendMail(validMessage)).resolves.toBe(true);
@@ -47,6 +55,7 @@ describe('sendMail method tests', () => {
 
     test('will send a message with 100 working MailServices', async () => {
         const sendMailController: SendMailController = new SendMailController(
+            testDb,
             ...generateLotsOfWorkingServices(100),
         );
         await expect(sendMailController.sendMail(validMessage)).resolves.toBe(true);
@@ -54,6 +63,7 @@ describe('sendMail method tests', () => {
 
     test('will send a message when 3/4 services are down', async () => {
         const sendMailController: SendMailController = new SendMailController(
+            testDb,
             ...generateLotsOfFailingServices(3),
             ...generateLotsOfWorkingServices(1),
         );
@@ -62,6 +72,7 @@ describe('sendMail method tests', () => {
 
     test('will not send a message when 4/4 services are down', async () => {
         const sendMailController: SendMailController = new SendMailController(
+            testDb,
             ...generateLotsOfFailingServices(4),
         );
         await expect(sendMailController.sendMail(validMessage)).resolves.toBe(false);
@@ -69,6 +80,7 @@ describe('sendMail method tests', () => {
 
     test('will still send a message if 9/10 services are down', async () => {
         const sendMailController: SendMailController = new SendMailController(
+            testDb,
             ...generateLotsOfFailingServices(9),
             ...generateLotsOfWorkingServices(1),
         );
@@ -77,6 +89,7 @@ describe('sendMail method tests', () => {
 
     test('will still send a message if 49/50 services are down', async () => {
         const sendMailController: SendMailController = new SendMailController(
+            testDb,
             ...generateLotsOfFailingServices(49),
             ...generateLotsOfWorkingServices(1),
         );
@@ -85,6 +98,7 @@ describe('sendMail method tests', () => {
 
     test.skip('will not send a message if it has undefined to field', async () => {
         const sendMailController: SendMailController = new SendMailController(
+            testDb,
             ...generateLotsOfWorkingServices(2),
         );
         await expect(sendMailController.sendMail(
@@ -94,6 +108,7 @@ describe('sendMail method tests', () => {
 
     test.skip('will not send a message if it has undefined from field', async () => {
         const sendMailController: SendMailController = new SendMailController(
+            testDb,
             ...generateLotsOfWorkingServices(2),
         );
         await expect(sendMailController.sendMail(

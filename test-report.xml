@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\code\mail-service\src\controllers\SendMailController.test.ts" errors="0" package="C:\code\mail-service\src\controllers\SendMailController.test.ts" hostname="localhost" tests="9" failures="0" time="5.673" timestamp="2018-01-11T14:00:43">
+  <testsuite id="0" name="C:\code\mail-service\src\controllers\SendMailController.test.ts" errors="0" package="C:\code\mail-service\src\controllers\SendMailController.test.ts" hostname="localhost" tests="9" failures="0" time="1.438" timestamp="2018-01-11T14:16:03">
     <properties>
     </properties>
     <testcase classname="sendMail method tests" name="will send a message with 2 working MailServices" time="0">
@@ -16,42 +16,6 @@
     <testcase classname="sendMail method tests" name="will still send a message if 49/50 services are down" time="0">
     </testcase>
     <testcase classname="getMiddleware method tests" name="can get express middleware" time="0">
-    </testcase>
-    <system-out/>
-    <system-err/>
-  </testsuite>
-  <testsuite id="1" name="C:\code\mail-service\src\services\mailgun.test.ts" errors="0" package="C:\code\mail-service\src\services\mailgun.test.ts" hostname="localhost" tests="6" failures="0" time="0.143" timestamp="2018-01-11T14:00:49">
-    <properties>
-    </properties>
-    <testcase classname="createService function tests" name="generates a MailService named mailgun" time="0">
-    </testcase>
-    <testcase classname="createService function tests" name="generates a MailService with a send function" time="0">
-    </testcase>
-    <testcase classname="mailgun MailService tests" name="send function calls mocked fetch" time="0">
-    </testcase>
-    <testcase classname="mailgun MailService tests" name="send function calls real fetch" time="0">
-    </testcase>
-    <testcase classname="mailgun MailService tests" name="send function calls mocked fetch and returns proper status" time="0">
-    </testcase>
-    <testcase classname="mailgun MailService tests" name="send function throws when server returns 500 status" time="0">
-    </testcase>
-    <system-out/>
-    <system-err/>
-  </testsuite>
-  <testsuite id="2" name="C:\code\mail-service\src\services\sendgrid.test.ts" errors="0" package="C:\code\mail-service\src\services\sendgrid.test.ts" hostname="localhost" tests="6" failures="0" time="0.116" timestamp="2018-01-11T14:00:49">
-    <properties>
-    </properties>
-    <testcase classname="createService function tests" name="generates a MailService named sendgrid" time="0">
-    </testcase>
-    <testcase classname="createService function tests" name="generates a MailService with a send function" time="0">
-    </testcase>
-    <testcase classname="sendgrid MailService tests" name="send function calls mocked fetch" time="0">
-    </testcase>
-    <testcase classname="sendgrid MailService tests" name="send function calls real fetch" time="0">
-    </testcase>
-    <testcase classname="sendgrid MailService tests" name="send function calls mocked fetch and returns proper status" time="0">
-    </testcase>
-    <testcase classname="sendgrid MailService tests" name="send function throws when server returns 500 status" time="0">
     </testcase>
     <system-out/>
     <system-err/>

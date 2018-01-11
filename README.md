@@ -36,9 +36,9 @@ npm i & npm start
 ```
 That's it! Server will be running on port specified!
 
-[API Documentation](https://morsmail.herokuapp.com/docs])
+[API Documentation](https://morsmail.herokuapp.com/docs)
 
-[Live example can be viewed here](https://morsmail.herokuapp.com])
+Live example can be viewed at: https://morsmail.herokuapp.com
 
 Or you can deploy your own instance automagically by clicking here: [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 

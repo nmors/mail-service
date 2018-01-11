@@ -80,22 +80,24 @@ export class SendMailController {
      * Returns an express Request handler (middleware) that can be applied to an API route.
      */
     public getMiddleware(): express.RequestHandler {
-        return (req: express.Request, res: express.Response) => {
-            logger.debug(req.body);
-            const emailsRef = this.database.ref('/emails');
-
-            emailsRef.push(Object.assign({}, req.body, {
-                status: 'pending',
-                // timestamp: firebase.database.ServerValue.TIMESTAMP,
-                timestamp: Date.now(),
-            }))
-            .then((emailSnapshot: DataSnapshot) => {
-                const id = emailSnapshot.key;
-                res.json({
-                    id,
+        return async (req: express.Request, res: express.Response) => {
+            try {
+                logger.debug(req.body);
+                const emailsRef = this.database.ref('/emails');
+                const emailSnapshot: DataSnapshot = await emailsRef.push(Object.assign({}, req.body, {
+                    status: 'pending',
+                    timestamp: Date.now(),
+                }));
+                res.status(202).json({
+                    id: emailSnapshot.key,
                     status: 'pending',
                 });
-            });
+
+            } catch (e) {
+                res.status(500).json({
+                    status: 'failed',
+                });
+            }
         };
     }
 

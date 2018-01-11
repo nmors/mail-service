@@ -17802,3 +17802,237 @@
 {"level":"error","message":"There was an error sending with FailingMailService47: Mail service down.","timestamp":"2018-01-11T14:16:05.214Z"}
 {"level":"error","message":"There was an error sending with FailingMailService48: Mail service down.","timestamp":"2018-01-11T14:16:05.214Z"}
 {"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:16:05.215Z"}
+{"level":"info","message":"Server started!","timestamp":"2018-01-11T14:40:11.291Z"}
+{"level":"info","message":"mail-service listening on port 3050","timestamp":"2018-01-11T14:40:11.392Z"}
+{"level":"debug","message":"listening for attempts...","timestamp":"2018-01-11T14:40:13.254Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:40:13.273Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:40:13.276Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:40:13.280Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:40:13.283Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:40:13.286Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:40:13.290Z"}
+{"level":"debug","message":"listening for attempts...","timestamp":"2018-01-11T14:40:13.292Z"}
+{"level":"debug","message":"detected pending attempt no=9 id=-L2_B84l0-AjrlbAZ22T that will retry in 153450.92749023438 milliseconds (timestamp=1515681766749.9275) for email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:40:13.308Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:40:13.312Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:40:13.315Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:40:13.318Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:40:13.322Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:46:24.530Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:46:24.539Z"}
+{"level":"error","message":"There was an error sending with FailingMailService0: Mail service down.","timestamp":"2018-01-11T14:46:24.542Z"}
+{"level":"error","message":"There was an error sending with FailingMailService1: Mail service down.","timestamp":"2018-01-11T14:46:24.542Z"}
+{"level":"error","message":"There was an error sending with FailingMailService2: Mail service down.","timestamp":"2018-01-11T14:46:24.544Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:46:24.544Z"}
+{"level":"error","message":"There was an error sending with FailingMailService0: Mail service down.","timestamp":"2018-01-11T14:46:24.546Z"}
+{"level":"error","message":"There was an error sending with FailingMailService1: Mail service down.","timestamp":"2018-01-11T14:46:24.546Z"}
+{"level":"error","message":"There was an error sending with FailingMailService2: Mail service down.","timestamp":"2018-01-11T14:46:24.546Z"}
+{"level":"error","message":"There was an error sending with FailingMailService3: Mail service down.","timestamp":"2018-01-11T14:46:24.546Z"}
+{"level":"error","message":"we tried really hard, but all of our mail services (FailingMailService0,FailingMailService1,FailingMailService2,FailingMailService3) refused to send our message!","timestamp":"2018-01-11T14:46:24.547Z"}
+{"level":"error","message":"There was an error sending with FailingMailService0: Mail service down.","timestamp":"2018-01-11T14:46:24.548Z"}
+{"level":"error","message":"There was an error sending with FailingMailService1: Mail service down.","timestamp":"2018-01-11T14:46:24.548Z"}
+{"level":"error","message":"There was an error sending with FailingMailService2: Mail service down.","timestamp":"2018-01-11T14:46:24.549Z"}
+{"level":"error","message":"There was an error sending with FailingMailService3: Mail service down.","timestamp":"2018-01-11T14:46:24.549Z"}
+{"level":"error","message":"There was an error sending with FailingMailService4: Mail service down.","timestamp":"2018-01-11T14:46:24.549Z"}
+{"level":"error","message":"There was an error sending with FailingMailService5: Mail service down.","timestamp":"2018-01-11T14:46:24.549Z"}
+{"level":"error","message":"There was an error sending with FailingMailService6: Mail service down.","timestamp":"2018-01-11T14:46:24.550Z"}
+{"level":"error","message":"There was an error sending with FailingMailService7: Mail service down.","timestamp":"2018-01-11T14:46:24.550Z"}
+{"level":"error","message":"There was an error sending with FailingMailService8: Mail service down.","timestamp":"2018-01-11T14:46:24.550Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:46:24.550Z"}
+{"level":"error","message":"There was an error sending with FailingMailService0: Mail service down.","timestamp":"2018-01-11T14:46:24.551Z"}
+{"level":"error","message":"There was an error sending with FailingMailService1: Mail service down.","timestamp":"2018-01-11T14:46:24.552Z"}
+{"level":"error","message":"There was an error sending with FailingMailService2: Mail service down.","timestamp":"2018-01-11T14:46:24.552Z"}
+{"level":"error","message":"There was an error sending with FailingMailService3: Mail service down.","timestamp":"2018-01-11T14:46:24.552Z"}
+{"level":"error","message":"There was an error sending with FailingMailService4: Mail service down.","timestamp":"2018-01-11T14:46:24.552Z"}
+{"level":"error","message":"There was an error sending with FailingMailService5: Mail service down.","timestamp":"2018-01-11T14:46:24.553Z"}
+{"level":"error","message":"There was an error sending with FailingMailService6: Mail service down.","timestamp":"2018-01-11T14:46:24.553Z"}
+{"level":"error","message":"There was an error sending with FailingMailService7: Mail service down.","timestamp":"2018-01-11T14:46:24.553Z"}
+{"level":"error","message":"There was an error sending with FailingMailService8: Mail service down.","timestamp":"2018-01-11T14:46:24.554Z"}
+{"level":"error","message":"There was an error sending with FailingMailService9: Mail service down.","timestamp":"2018-01-11T14:46:24.554Z"}
+{"level":"error","message":"There was an error sending with FailingMailService10: Mail service down.","timestamp":"2018-01-11T14:46:24.554Z"}
+{"level":"error","message":"There was an error sending with FailingMailService11: Mail service down.","timestamp":"2018-01-11T14:46:24.554Z"}
+{"level":"error","message":"There was an error sending with FailingMailService12: Mail service down.","timestamp":"2018-01-11T14:46:24.555Z"}
+{"level":"error","message":"There was an error sending with FailingMailService13: Mail service down.","timestamp":"2018-01-11T14:46:24.555Z"}
+{"level":"error","message":"There was an error sending with FailingMailService14: Mail service down.","timestamp":"2018-01-11T14:46:24.555Z"}
+{"level":"error","message":"There was an error sending with FailingMailService15: Mail service down.","timestamp":"2018-01-11T14:46:24.555Z"}
+{"level":"error","message":"There was an error sending with FailingMailService16: Mail service down.","timestamp":"2018-01-11T14:46:24.556Z"}
+{"level":"error","message":"There was an error sending with FailingMailService17: Mail service down.","timestamp":"2018-01-11T14:46:24.556Z"}
+{"level":"error","message":"There was an error sending with FailingMailService18: Mail service down.","timestamp":"2018-01-11T14:46:24.556Z"}
+{"level":"error","message":"There was an error sending with FailingMailService19: Mail service down.","timestamp":"2018-01-11T14:46:24.556Z"}
+{"level":"error","message":"There was an error sending with FailingMailService20: Mail service down.","timestamp":"2018-01-11T14:46:24.557Z"}
+{"level":"error","message":"There was an error sending with FailingMailService21: Mail service down.","timestamp":"2018-01-11T14:46:24.557Z"}
+{"level":"error","message":"There was an error sending with FailingMailService22: Mail service down.","timestamp":"2018-01-11T14:46:24.557Z"}
+{"level":"error","message":"There was an error sending with FailingMailService23: Mail service down.","timestamp":"2018-01-11T14:46:24.558Z"}
+{"level":"error","message":"There was an error sending with FailingMailService24: Mail service down.","timestamp":"2018-01-11T14:46:24.558Z"}
+{"level":"error","message":"There was an error sending with FailingMailService25: Mail service down.","timestamp":"2018-01-11T14:46:24.558Z"}
+{"level":"error","message":"There was an error sending with FailingMailService26: Mail service down.","timestamp":"2018-01-11T14:46:24.558Z"}
+{"level":"error","message":"There was an error sending with FailingMailService27: Mail service down.","timestamp":"2018-01-11T14:46:24.559Z"}
+{"level":"error","message":"There was an error sending with FailingMailService28: Mail service down.","timestamp":"2018-01-11T14:46:24.559Z"}
+{"level":"error","message":"There was an error sending with FailingMailService29: Mail service down.","timestamp":"2018-01-11T14:46:24.559Z"}
+{"level":"error","message":"There was an error sending with FailingMailService30: Mail service down.","timestamp":"2018-01-11T14:46:24.559Z"}
+{"level":"error","message":"There was an error sending with FailingMailService31: Mail service down.","timestamp":"2018-01-11T14:46:24.562Z"}
+{"level":"error","message":"There was an error sending with FailingMailService32: Mail service down.","timestamp":"2018-01-11T14:46:24.563Z"}
+{"level":"error","message":"There was an error sending with FailingMailService33: Mail service down.","timestamp":"2018-01-11T14:46:24.563Z"}
+{"level":"error","message":"There was an error sending with FailingMailService34: Mail service down.","timestamp":"2018-01-11T14:46:24.564Z"}
+{"level":"error","message":"There was an error sending with FailingMailService35: Mail service down.","timestamp":"2018-01-11T14:46:24.564Z"}
+{"level":"error","message":"There was an error sending with FailingMailService36: Mail service down.","timestamp":"2018-01-11T14:46:24.564Z"}
+{"level":"error","message":"There was an error sending with FailingMailService37: Mail service down.","timestamp":"2018-01-11T14:46:24.565Z"}
+{"level":"error","message":"There was an error sending with FailingMailService38: Mail service down.","timestamp":"2018-01-11T14:46:24.565Z"}
+{"level":"error","message":"There was an error sending with FailingMailService39: Mail service down.","timestamp":"2018-01-11T14:46:24.565Z"}
+{"level":"error","message":"There was an error sending with FailingMailService40: Mail service down.","timestamp":"2018-01-11T14:46:24.566Z"}
+{"level":"error","message":"There was an error sending with FailingMailService41: Mail service down.","timestamp":"2018-01-11T14:46:24.566Z"}
+{"level":"error","message":"There was an error sending with FailingMailService42: Mail service down.","timestamp":"2018-01-11T14:46:24.566Z"}
+{"level":"error","message":"There was an error sending with FailingMailService43: Mail service down.","timestamp":"2018-01-11T14:46:24.567Z"}
+{"level":"error","message":"There was an error sending with FailingMailService44: Mail service down.","timestamp":"2018-01-11T14:46:24.567Z"}
+{"level":"error","message":"There was an error sending with FailingMailService45: Mail service down.","timestamp":"2018-01-11T14:46:24.568Z"}
+{"level":"error","message":"There was an error sending with FailingMailService46: Mail service down.","timestamp":"2018-01-11T14:46:24.569Z"}
+{"level":"error","message":"There was an error sending with FailingMailService47: Mail service down.","timestamp":"2018-01-11T14:46:24.569Z"}
+{"level":"error","message":"There was an error sending with FailingMailService48: Mail service down.","timestamp":"2018-01-11T14:46:24.570Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:46:24.570Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:47:28.775Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:47:28.794Z"}
+{"level":"error","message":"There was an error sending with FailingMailService0: Mail service down.","timestamp":"2018-01-11T14:47:28.801Z"}
+{"level":"error","message":"There was an error sending with FailingMailService1: Mail service down.","timestamp":"2018-01-11T14:47:28.801Z"}
+{"level":"error","message":"There was an error sending with FailingMailService2: Mail service down.","timestamp":"2018-01-11T14:47:28.802Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:47:28.803Z"}
+{"level":"error","message":"There was an error sending with FailingMailService0: Mail service down.","timestamp":"2018-01-11T14:47:28.804Z"}
+{"level":"error","message":"There was an error sending with FailingMailService1: Mail service down.","timestamp":"2018-01-11T14:47:28.804Z"}
+{"level":"error","message":"There was an error sending with FailingMailService2: Mail service down.","timestamp":"2018-01-11T14:47:28.805Z"}
+{"level":"error","message":"There was an error sending with FailingMailService3: Mail service down.","timestamp":"2018-01-11T14:47:28.805Z"}
+{"level":"error","message":"we tried really hard, but all of our mail services (FailingMailService0,FailingMailService1,FailingMailService2,FailingMailService3) refused to send our message!","timestamp":"2018-01-11T14:47:28.805Z"}
+{"level":"error","message":"There was an error sending with FailingMailService0: Mail service down.","timestamp":"2018-01-11T14:47:28.807Z"}
+{"level":"error","message":"There was an error sending with FailingMailService1: Mail service down.","timestamp":"2018-01-11T14:47:28.807Z"}
+{"level":"error","message":"There was an error sending with FailingMailService2: Mail service down.","timestamp":"2018-01-11T14:47:28.807Z"}
+{"level":"error","message":"There was an error sending with FailingMailService3: Mail service down.","timestamp":"2018-01-11T14:47:28.808Z"}
+{"level":"error","message":"There was an error sending with FailingMailService4: Mail service down.","timestamp":"2018-01-11T14:47:28.808Z"}
+{"level":"error","message":"There was an error sending with FailingMailService5: Mail service down.","timestamp":"2018-01-11T14:47:28.808Z"}
+{"level":"error","message":"There was an error sending with FailingMailService6: Mail service down.","timestamp":"2018-01-11T14:47:28.808Z"}
+{"level":"error","message":"There was an error sending with FailingMailService7: Mail service down.","timestamp":"2018-01-11T14:47:28.809Z"}
+{"level":"error","message":"There was an error sending with FailingMailService8: Mail service down.","timestamp":"2018-01-11T14:47:28.809Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:47:28.809Z"}
+{"level":"error","message":"There was an error sending with FailingMailService0: Mail service down.","timestamp":"2018-01-11T14:47:28.810Z"}
+{"level":"error","message":"There was an error sending with FailingMailService1: Mail service down.","timestamp":"2018-01-11T14:47:28.811Z"}
+{"level":"error","message":"There was an error sending with FailingMailService2: Mail service down.","timestamp":"2018-01-11T14:47:28.811Z"}
+{"level":"error","message":"There was an error sending with FailingMailService3: Mail service down.","timestamp":"2018-01-11T14:47:28.811Z"}
+{"level":"error","message":"There was an error sending with FailingMailService4: Mail service down.","timestamp":"2018-01-11T14:47:28.812Z"}
+{"level":"error","message":"There was an error sending with FailingMailService5: Mail service down.","timestamp":"2018-01-11T14:47:28.812Z"}
+{"level":"error","message":"There was an error sending with FailingMailService6: Mail service down.","timestamp":"2018-01-11T14:47:28.812Z"}
+{"level":"error","message":"There was an error sending with FailingMailService7: Mail service down.","timestamp":"2018-01-11T14:47:28.812Z"}
+{"level":"error","message":"There was an error sending with FailingMailService8: Mail service down.","timestamp":"2018-01-11T14:47:28.813Z"}
+{"level":"error","message":"There was an error sending with FailingMailService9: Mail service down.","timestamp":"2018-01-11T14:47:28.813Z"}
+{"level":"error","message":"There was an error sending with FailingMailService10: Mail service down.","timestamp":"2018-01-11T14:47:28.813Z"}
+{"level":"error","message":"There was an error sending with FailingMailService11: Mail service down.","timestamp":"2018-01-11T14:47:28.814Z"}
+{"level":"error","message":"There was an error sending with FailingMailService12: Mail service down.","timestamp":"2018-01-11T14:47:28.814Z"}
+{"level":"error","message":"There was an error sending with FailingMailService13: Mail service down.","timestamp":"2018-01-11T14:47:28.814Z"}
+{"level":"error","message":"There was an error sending with FailingMailService14: Mail service down.","timestamp":"2018-01-11T14:47:28.814Z"}
+{"level":"error","message":"There was an error sending with FailingMailService15: Mail service down.","timestamp":"2018-01-11T14:47:28.815Z"}
+{"level":"error","message":"There was an error sending with FailingMailService16: Mail service down.","timestamp":"2018-01-11T14:47:28.815Z"}
+{"level":"error","message":"There was an error sending with FailingMailService17: Mail service down.","timestamp":"2018-01-11T14:47:28.815Z"}
+{"level":"error","message":"There was an error sending with FailingMailService18: Mail service down.","timestamp":"2018-01-11T14:47:28.815Z"}
+{"level":"error","message":"There was an error sending with FailingMailService19: Mail service down.","timestamp":"2018-01-11T14:47:28.816Z"}
+{"level":"error","message":"There was an error sending with FailingMailService20: Mail service down.","timestamp":"2018-01-11T14:47:28.817Z"}
+{"level":"error","message":"There was an error sending with FailingMailService21: Mail service down.","timestamp":"2018-01-11T14:47:28.817Z"}
+{"level":"error","message":"There was an error sending with FailingMailService22: Mail service down.","timestamp":"2018-01-11T14:47:28.818Z"}
+{"level":"error","message":"There was an error sending with FailingMailService23: Mail service down.","timestamp":"2018-01-11T14:47:28.818Z"}
+{"level":"error","message":"There was an error sending with FailingMailService24: Mail service down.","timestamp":"2018-01-11T14:47:28.819Z"}
+{"level":"error","message":"There was an error sending with FailingMailService25: Mail service down.","timestamp":"2018-01-11T14:47:28.819Z"}
+{"level":"error","message":"There was an error sending with FailingMailService26: Mail service down.","timestamp":"2018-01-11T14:47:28.820Z"}
+{"level":"error","message":"There was an error sending with FailingMailService27: Mail service down.","timestamp":"2018-01-11T14:47:28.820Z"}
+{"level":"error","message":"There was an error sending with FailingMailService28: Mail service down.","timestamp":"2018-01-11T14:47:28.820Z"}
+{"level":"error","message":"There was an error sending with FailingMailService29: Mail service down.","timestamp":"2018-01-11T14:47:28.821Z"}
+{"level":"error","message":"There was an error sending with FailingMailService30: Mail service down.","timestamp":"2018-01-11T14:47:28.821Z"}
+{"level":"error","message":"There was an error sending with FailingMailService31: Mail service down.","timestamp":"2018-01-11T14:47:28.822Z"}
+{"level":"error","message":"There was an error sending with FailingMailService32: Mail service down.","timestamp":"2018-01-11T14:47:28.822Z"}
+{"level":"error","message":"There was an error sending with FailingMailService33: Mail service down.","timestamp":"2018-01-11T14:47:28.822Z"}
+{"level":"error","message":"There was an error sending with FailingMailService34: Mail service down.","timestamp":"2018-01-11T14:47:28.823Z"}
+{"level":"error","message":"There was an error sending with FailingMailService35: Mail service down.","timestamp":"2018-01-11T14:47:28.823Z"}
+{"level":"error","message":"There was an error sending with FailingMailService36: Mail service down.","timestamp":"2018-01-11T14:47:28.823Z"}
+{"level":"error","message":"There was an error sending with FailingMailService37: Mail service down.","timestamp":"2018-01-11T14:47:28.823Z"}
+{"level":"error","message":"There was an error sending with FailingMailService38: Mail service down.","timestamp":"2018-01-11T14:47:28.824Z"}
+{"level":"error","message":"There was an error sending with FailingMailService39: Mail service down.","timestamp":"2018-01-11T14:47:28.824Z"}
+{"level":"error","message":"There was an error sending with FailingMailService40: Mail service down.","timestamp":"2018-01-11T14:47:28.824Z"}
+{"level":"error","message":"There was an error sending with FailingMailService41: Mail service down.","timestamp":"2018-01-11T14:47:28.825Z"}
+{"level":"error","message":"There was an error sending with FailingMailService42: Mail service down.","timestamp":"2018-01-11T14:47:28.825Z"}
+{"level":"error","message":"There was an error sending with FailingMailService43: Mail service down.","timestamp":"2018-01-11T14:47:28.825Z"}
+{"level":"error","message":"There was an error sending with FailingMailService44: Mail service down.","timestamp":"2018-01-11T14:47:28.825Z"}
+{"level":"error","message":"There was an error sending with FailingMailService45: Mail service down.","timestamp":"2018-01-11T14:47:28.825Z"}
+{"level":"error","message":"There was an error sending with FailingMailService46: Mail service down.","timestamp":"2018-01-11T14:47:28.826Z"}
+{"level":"error","message":"There was an error sending with FailingMailService47: Mail service down.","timestamp":"2018-01-11T14:47:28.826Z"}
+{"level":"error","message":"There was an error sending with FailingMailService48: Mail service down.","timestamp":"2018-01-11T14:47:28.826Z"}
+{"level":"info","message":"successfully sent your message with WorkingMailService0!","timestamp":"2018-01-11T14:47:28.826Z"}
+{"level":"info","message":"Server started!","timestamp":"2018-01-11T14:47:47.345Z"}
+{"level":"info","message":"mail-service listening on port 3050","timestamp":"2018-01-11T14:47:47.469Z"}
+{"level":"debug","message":"listening for attempts...","timestamp":"2018-01-11T14:47:49.812Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:47:49.830Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:47:49.833Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:47:49.836Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:47:49.839Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:47:49.843Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:47:49.846Z"}
+{"level":"debug","message":"listening for attempts...","timestamp":"2018-01-11T14:47:49.850Z"}
+{"level":"debug","message":"detected pending attempt no=9 id=-L2_B84l0-AjrlbAZ22T that will retry in -303107.0725097656 milliseconds (timestamp=1515681766749.9275) for email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:47:49.866Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:47:49.869Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:47:49.872Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:47:49.875Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:47:49.878Z"}
+{"level":"info","message":"attempting to send a message with mailgun","timestamp":"2018-01-11T14:47:49.898Z"}
+{"level":"error","message":"There was an error sending with mailgun: Invalid response","timestamp":"2018-01-11T14:47:51.186Z"}
+{"level":"info","message":"attempting to send a message with sendgrid","timestamp":"2018-01-11T14:47:51.190Z"}
+{"level":"error","message":"There was an error sending with sendgrid: Invalid response","timestamp":"2018-01-11T14:47:52.172Z"}
+{"level":"error","message":"we tried really hard, but all of our mail services (mailgun,sendgrid) refused to send our message!","timestamp":"2018-01-11T14:47:52.180Z"}
+{"level":"error","message":"email message failed to send with id=-L2V4KrgIJGEimTk7wev and attempt id=-L2_B84l0-AjrlbAZ22T","timestamp":"2018-01-11T14:47:52.187Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:47:52.727Z"}
+{"level":"error","message":"created a new attempt id=-L2_gFYWWaWAH1buubFC for email id=-L2V4KrgIJGEimTk7wev scheduled for=1539837035473.5752 which is in 24154962.523575194 seconds","timestamp":"2018-01-11T14:47:52.959Z"}
+{"to":"nathan@mors.me","from":"nathan@mors.me","subject":"Friday Night","text":"Hey Mate! Let's go for drinks this Friday night!","level":"debug","message":"","timestamp":"2018-01-11T14:48:03.735Z"}
+{"level":"debug","message":"listening for attempts...","timestamp":"2018-01-11T14:48:03.738Z"}
+{"level":"debug","message":"creating Initial attempt for email with id=-L2_gIEc0xQ-lHB5Ua2T","timestamp":"2018-01-11T14:48:03.742Z"}
+{"level":"debug","message":"detected pending attempt no=0 id=-L2_gIEkPnZ8P51QI_SY that will retry in 4999 milliseconds (timestamp=1515682088743) for email id=-L2_gIEc0xQ-lHB5Ua2T","timestamp":"2018-01-11T14:48:03.752Z"}
+{"level":"error","message":"created a new attempt id=-L2_gIEkPnZ8P51QI_SY for email id=-L2_gIEc0xQ-lHB5Ua2T scheduled for=1515682088743 which is in 4.762 seconds","timestamp":"2018-01-11T14:48:03.988Z"}
+{"level":"info","message":"attempting to send a message with mailgun","timestamp":"2018-01-11T14:48:08.756Z"}
+{"level":"error","message":"There was an error sending with mailgun: message.to.join is not a function","timestamp":"2018-01-11T14:48:08.761Z"}
+{"level":"info","message":"attempting to send a message with sendgrid","timestamp":"2018-01-11T14:48:08.764Z"}
+{"level":"error","message":"There was an error sending with sendgrid: message.to.map is not a function","timestamp":"2018-01-11T14:48:08.768Z"}
+{"level":"error","message":"we tried really hard, but all of our mail services (mailgun,sendgrid) refused to send our message!","timestamp":"2018-01-11T14:48:08.774Z"}
+{"level":"error","message":"email message failed to send with id=-L2_gIEc0xQ-lHB5Ua2T and attempt id=-L2_gIEkPnZ8P51QI_SY","timestamp":"2018-01-11T14:48:08.779Z"}
+{"level":"debug","message":"detected pending attempt no=1 id=-L2_gJ_RjqhyrHzR88t- that will retry in 12717.28173828125 milliseconds (timestamp=1515682101945.2817) for email id=-L2_gIEc0xQ-lHB5Ua2T","timestamp":"2018-01-11T14:48:09.239Z"}
+{"level":"error","message":"created a new attempt id=-L2_gJ_RjqhyrHzR88t- for email id=-L2_gIEc0xQ-lHB5Ua2T scheduled for=1515682101945.2817 which is in 12.48428173828125 seconds","timestamp":"2018-01-11T14:48:09.470Z"}
+{"level":"info","message":"attempting to send a message with mailgun","timestamp":"2018-01-11T14:48:21.964Z"}
+{"level":"error","message":"There was an error sending with mailgun: message.to.join is not a function","timestamp":"2018-01-11T14:48:21.972Z"}
+{"level":"info","message":"attempting to send a message with sendgrid","timestamp":"2018-01-11T14:48:21.975Z"}
+{"level":"error","message":"There was an error sending with sendgrid: message.to.map is not a function","timestamp":"2018-01-11T14:48:21.981Z"}
+{"level":"error","message":"we tried really hard, but all of our mail services (mailgun,sendgrid) refused to send our message!","timestamp":"2018-01-11T14:48:21.988Z"}
+{"level":"error","message":"email message failed to send with id=-L2_gIEc0xQ-lHB5Ua2T and attempt id=-L2_gJ_RjqhyrHzR88t-","timestamp":"2018-01-11T14:48:21.996Z"}
+{"level":"debug","message":"detected pending attempt no=2 id=-L2_gMo3jGD3fb1EfLjD that will retry in 17388.05615234375 milliseconds (timestamp=1515682119840.0562) for email id=-L2_gIEc0xQ-lHB5Ua2T","timestamp":"2018-01-11T14:48:22.461Z"}
+{"level":"error","message":"created a new attempt id=-L2_gMo3jGD3fb1EfLjD for email id=-L2_gIEc0xQ-lHB5Ua2T scheduled for=1515682119840.0562 which is in 17.16105615234375 seconds","timestamp":"2018-01-11T14:48:22.688Z"}
+{"level":"info","message":"Server started!","timestamp":"2018-01-11T14:48:55.279Z"}
+{"level":"info","message":"mail-service listening on port 3050","timestamp":"2018-01-11T14:48:55.339Z"}
+{"level":"debug","message":"listening for attempts...","timestamp":"2018-01-11T14:48:57.070Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:48:57.089Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:48:57.092Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:48:57.095Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:48:57.098Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:48:57.102Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V-GVt5JSugnoXRLHw","timestamp":"2018-01-11T14:48:57.105Z"}
+{"level":"debug","message":"listening for attempts...","timestamp":"2018-01-11T14:48:57.108Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:48:57.119Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:48:57.122Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:48:57.126Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:48:57.131Z"}
+{"level":"debug","message":"exceeded max retries! email id=-L2V4KrgIJGEimTk7wev","timestamp":"2018-01-11T14:48:57.136Z"}
+{"level":"debug","message":"listening for attempts...","timestamp":"2018-01-11T14:48:57.138Z"}
+{"level":"debug","message":"detected pending attempt no=2 id=-L2_gMo3jGD3fb1EfLjD that will retry in -17299.94384765625 milliseconds (timestamp=1515682119840.0562) for email id=-L2_gIEc0xQ-lHB5Ua2T","timestamp":"2018-01-11T14:48:57.149Z"}
+{"level":"info","message":"attempting to send a message with mailgun","timestamp":"2018-01-11T14:48:57.173Z"}
+{"level":"error","message":"There was an error sending with mailgun: message.to.join is not a function","timestamp":"2018-01-11T14:48:57.179Z"}
+{"level":"info","message":"attempting to send a message with sendgrid","timestamp":"2018-01-11T14:48:57.184Z"}
+{"level":"error","message":"There was an error sending with sendgrid: message.to.map is not a function","timestamp":"2018-01-11T14:48:57.189Z"}
+{"level":"error","message":"we tried really hard, but all of our mail services (mailgun,sendgrid) refused to send our message!","timestamp":"2018-01-11T14:48:57.197Z"}
+{"level":"error","message":"email message failed to send with id=-L2_gIEc0xQ-lHB5Ua2T and attempt id=-L2_gMo3jGD3fb1EfLjD","timestamp":"2018-01-11T14:48:57.205Z"}
+{"level":"debug","message":"detected pending attempt no=3 id=-L2_gVPD4vgtInIXFFYq that will retry in 30083.536865234375 milliseconds (timestamp=1515682167744.5369) for email id=-L2_gIEc0xQ-lHB5Ua2T","timestamp":"2018-01-11T14:48:57.673Z"}
+{"level":"error","message":"created a new attempt id=-L2_gVPD4vgtInIXFFYq for email id=-L2_gIEc0xQ-lHB5Ua2T scheduled for=1515682167744.5369 which is in 29.857536865234376 seconds","timestamp":"2018-01-11T14:48:57.895Z"}
+{"level":"info","message":"attempting to send a message with mailgun","timestamp":"2018-01-11T14:49:27.761Z"}
+{"level":"error","message":"There was an error sending with mailgun: message.to.join is not a function","timestamp":"2018-01-11T14:49:27.770Z"}
+{"level":"info","message":"attempting to send a message with sendgrid","timestamp":"2018-01-11T14:49:27.773Z"}
+{"level":"error","message":"There was an error sending with sendgrid: message.to.map is not a function","timestamp":"2018-01-11T14:49:27.786Z"}
+{"level":"error","message":"we tried really hard, but all of our mail services (mailgun,sendgrid) refused to send our message!","timestamp":"2018-01-11T14:49:27.811Z"}
+{"level":"error","message":"email message failed to send with id=-L2_gIEc0xQ-lHB5Ua2T and attempt id=-L2_gVPD4vgtInIXFFYq","timestamp":"2018-01-11T14:49:27.850Z"}
+{"level":"debug","message":"detected pending attempt no=4 id=-L2_gbsv9Y2sZxHBzAAe that will retry in 64597.150146484375 milliseconds (timestamp=1515682232894.1501) for email id=-L2_gIEc0xQ-lHB5Ua2T","timestamp":"2018-01-11T14:49:28.307Z"}
+{"level":"error","message":"created a new attempt id=-L2_gbsv9Y2sZxHBzAAe for email id=-L2_gIEc0xQ-lHB5Ua2T scheduled for=1515682232894.1501 which is in 64.36615014648437 seconds","timestamp":"2018-01-11T14:49:28.537Z"}

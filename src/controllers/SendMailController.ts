@@ -1,5 +1,3 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
 
 import * as bluebird from 'bluebird';
 import * as express from 'express';
@@ -8,20 +6,24 @@ import * as sendgrid from '../services/sendgrid';
 import fetch, { RequestInit, Response } from 'node-fetch';
 import { logger } from '../logger';
 import { MailService, Message } from '../models/MailService';
-import firebase from '../database/firebase';
+import firebaseDatabase from '../database/firebase';
 import { DataSnapshot } from '@firebase/database/dist/esm/src/api/DataSnapshot';
 import { Reference } from '@firebase/database/dist/esm/src/api/Reference';
+import { FirebaseDatabase } from '@firebase/database-types';
 
 export class SendMailController {
     private mailServices: MailService[];
     private readonly maximumRetries = 10;
+    private database: FirebaseDatabase;
 
     /**
      * @param mailServices you can inject as many MailServices as you want here for extra reliability
      */
     constructor(
+        database: FirebaseDatabase,
         ...mailServices: MailService[],
     ) {
+        this.database = database;
         this.mailServices = [ ...mailServices ];
         this.listenForPendingEmails();
     }
@@ -34,8 +36,10 @@ export class SendMailController {
      */
     public static bootstrap(
         fetchProvider: any = fetch,
+        database: FirebaseDatabase = firebaseDatabase,
     ) {
         return new SendMailController(
+            database,
             mailgun.createService(fetchProvider),
             sendgrid.createService(fetchProvider),
         );
@@ -78,7 +82,7 @@ export class SendMailController {
     public getMiddleware(): express.RequestHandler {
         return (req: express.Request, res: express.Response) => {
             logger.debug(req.body);
-            const emailsRef = firebase.database().ref('/emails');
+            const emailsRef = this.database.ref('/emails');
 
             emailsRef.push(Object.assign({}, req.body, {
                 status: 'pending',
@@ -99,7 +103,7 @@ export class SendMailController {
      * start listening for pending emails in firebase
      */
     private listenForPendingEmails() {
-        firebase.database()
+        this.database
             .ref('/emails')
             .orderByChild('status')
             .equalTo('pending')
@@ -118,8 +122,12 @@ export class SendMailController {
                 logger.debug('listening for attempts...')
                 this.listenForAttempt(emailSnapshot, message);
 
-                logger.debug('creating Initial attempt for email with id=' + emailSnapshot.key);
-                this.createNewAttempt(emailReference, Date.now() + 5000);
+                const existingAttempts = emailSnapshot.val().attempts;
+                const existingttemptCount: number = existingAttempts ? Object.keys(existingAttempts).length : 0;
+                if (existingttemptCount === 0) {
+                    logger.debug('creating Initial attempt for email with id=' + emailSnapshot.key);
+                    this.createNewAttempt(emailReference, Date.now() + 5000);
+                }
                 return;
             });
     }
@@ -144,7 +152,7 @@ export class SendMailController {
                     logger.debug('exceeded max retries! email id=' + emailReference.key);
                     return;
                 }
-                logger.debug(`detected pending attempt no=${attemptNo} that will execute in ${tryToSendInMillis} milliseconds id=${attemptSnapshot.key}`);
+                logger.debug(`detected pending attempt no=${attemptNo} id=${attemptSnapshot.key} that will retry in ${tryToSendInMillis} milliseconds (timestamp=${timestamp}) for email id=${emailSnapshot.key}`);
                 setTimeout(() => this.sendQueuedMessage(message, emailReference, attemptSnapshot), tryToSendInMillis);
             },
             (error: Error) => logger.debug('failed to add attempt listener')

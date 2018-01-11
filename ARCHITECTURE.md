@@ -16,6 +16,15 @@ The process of sending mail is broken up into three stages.
 
 In order to send mail through the application, you must use the HTTP REST API.
 
+Each message will have 10 attempts before the message itself fails. This value is configurable
+
+#### Message Lifecycle
+ - 'pending' => 'failed' | 'success'
+
+#### Attempt Lifecycle
+ - 'pending' => 'failed' | 'success'
+
+
 ### API
 
 The API is very simple, as the application only needs to do one thing, which is send email.
@@ -27,7 +36,7 @@ It expects JSON request body with 4 fields, all of which are strings. (to, from,
 
 
 #### Validation
-Validation on the api is done via swagger validator. It will check the JSON schema generated from the API specification against all incoming requests.
+Validation on the api is done via swagger validator. It will check the JSON schema generated from the API specification against all incoming requests. TODO
 
 
 ### SendMailController
@@ -45,9 +54,9 @@ The SendMailController is designed in a way where new services can be added easi
 ### MailStatusController
 
 This controller is responsible for message delivery status interaction:
-  - TODO: allows user to check the status of the message
-  - TODO: checks the mailservices if has been successful on their side
-  - TODO: ...
+ - Given an id, queries firebase for message state
+ - allows user to check the status of the message and attempts associated with the message
+ - TODO: checks the mailservices if has been successful on their side
 
 
 ### Firebase

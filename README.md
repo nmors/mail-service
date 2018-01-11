@@ -57,7 +57,7 @@ Please view the architecture document by clicking [HERE](./ARCHITECTURE.md)
 
 ## TODO
 
-#### Important
+#### Important, before production release
  - Add firebase creds to circleci and heroku so develop branch builds
  - Check the mailservice if has been successful on their side
  - Improve / fix request validation
@@ -72,5 +72,4 @@ Please view the architecture document by clicking [HERE](./ARCHITECTURE.md)
  - Add authentication
  - Support for sending HTML emails (handlebars templates or something would be nice?)
  - investigate using firebase feature .setWithPriority() and .orderByPriority()
-
 

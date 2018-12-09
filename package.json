@@ -6,7 +6,9 @@
   "scripts": {
     "start": "ts-node src/main.ts",
     "test": "jest",
-    "test-ci": "jest --ci"
+    "test-ci": "jest --ci",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +19,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "firebase": "^4.8.1",
-    "firebase-admin": "^5.7.0",
+    "firebase-admin": "^5.12.0",
     "firebase-queue": "^1.6.1",
     "form-data": "^2.3.1",
     "js-yaml": "^3.10.0",
@@ -25,7 +27,8 @@
     "swagger-tools": "^0.10.3",
     "ts-node": "^4.1.0",
     "typescript": "^2.6.2",
-    "winston": "^2.4.0"
+    "winston": "^2.4.0",
+    "snyk": "^1.116.2"
   },
   "devDependencies": {
     "@types/base-64": "^0.1.2",
@@ -77,5 +80,6 @@
     "reporters": [
       "default"
     ]
-  }
+  },
+  "snyk": true
 }

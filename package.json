@@ -6,7 +6,9 @@
   "scripts": {
     "start": "ts-node src/main.ts",
     "test": "jest",
-    "test-ci": "jest --ci"
+    "test-ci": "jest --ci",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "",
   "license": "ISC",
@@ -25,7 +27,8 @@
     "swagger-tools": "^0.10.3",
     "ts-node": "^4.1.0",
     "typescript": "^2.6.2",
-    "winston": "^2.4.0"
+    "winston": "^2.4.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@types/base-64": "^0.1.2",
@@ -77,5 +80,6 @@
     "reporters": [
       "default"
     ]
-  }
+  },
+  "snyk": true
 }

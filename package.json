@@ -17,7 +17,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "firebase": "^4.8.1",
-    "firebase-admin": "^5.7.0",
+    "firebase-admin": "^11.1.0",
     "firebase-queue": "^1.6.1",
     "form-data": "^2.3.1",
     "js-yaml": "^3.10.0",
